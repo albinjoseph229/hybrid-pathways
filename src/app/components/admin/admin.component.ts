@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-admin',
   standalone: true,
   imports: [ButtonModule],
   templateUrl: './admin.component.html',
