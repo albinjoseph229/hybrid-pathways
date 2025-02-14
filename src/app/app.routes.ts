@@ -6,6 +6,7 @@ import { authGuard } from './guards/auth.guard';
 import { LandingPageComponent } from './components/landing-page-components/landing-page/landing-page.component';
 import { LogoutComponent } from './components/common-components/logout/logout.component';
 import{AboutUsComponent} from './components/common-components/about-us/about-us.component';
+import{ContactUsComponent} from './components/common-components/contact-us/contact-us.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,4 +16,5 @@ export const routes: Routes = [
   { path: 'common/landing', component: LandingPageComponent },
   { path: 'logout', component: LogoutComponent },
   {path: 'common/about',component:AboutUsComponent},
+  {path:'common/contact',component:ContactUsComponent}
 ];
