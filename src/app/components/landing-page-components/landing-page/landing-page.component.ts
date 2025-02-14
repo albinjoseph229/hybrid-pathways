@@ -4,7 +4,7 @@ import { FooterComponentCommon } from '../../common-components/footer-common/foo
 
 @Component({
   selector: 'app-landing-page',
-  imports: [HeaderComponentCommon, FooterComponentCommon],
+  imports: [],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
