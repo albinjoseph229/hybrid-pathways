@@ -14,7 +14,8 @@ import { passwordMismatchValidator } from '../../shared/password-mismatch.direct
 import { AuthService } from '../../services/auth.service';
 import { RegisterPostData } from '../../interfaces/auth';
 import { MessageService } from 'primeng/api';
-
+import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -25,6 +26,7 @@ import { MessageService } from 'primeng/api';
     PasswordModule,
     ButtonModule,
     RouterLink,
+    CommonModule
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
