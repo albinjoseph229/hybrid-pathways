@@ -38,4 +38,5 @@ export class AppComponent {
   isCommon(): boolean {
     return this.router.url.startsWith('/common');
   }
+
 }

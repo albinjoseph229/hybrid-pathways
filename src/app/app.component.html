@@ -9,3 +9,6 @@
   <router-outlet></router-outlet>
   <app-footer-common></app-footer-common>
 </div>
+<div *ngIf="!isAdmin() && !isCommon()">
+  <router-outlet></router-outlet>
+</div>
