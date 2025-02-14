@@ -7,6 +7,7 @@ import { LandingPageComponent } from './components/landing-page-components/landi
 import { LogoutComponent } from './components/common-components/logout/logout.component';
 import{AboutUsComponent} from './components/common-components/about-us/about-us.component';
 import{ContactUsComponent} from './components/common-components/contact-us/contact-us.component';
+import{FaqComponent} from './components/common-components/faq/faq.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,5 +17,6 @@ export const routes: Routes = [
   { path: 'common/landing', component: LandingPageComponent },
   { path: 'logout', component: LogoutComponent },
   {path: 'common/about',component:AboutUsComponent},
-  {path:'common/contact',component:ContactUsComponent}
+  {path:'common/contact',component:ContactUsComponent},
+  {path:'common/faq',component:FaqComponent}
 ];
