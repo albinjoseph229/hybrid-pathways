@@ -17,6 +17,12 @@
       "fullName": "Albin Joseph",
       "email": "albin@gmail.com",
       "password": "111"
+    },
+    {
+      "id": "fa64",
+      "fullName": "MUHAMMED NIHAL",
+      "email": "nihal@gmail.com",
+      "password": "123"
     }
   ]
 }
