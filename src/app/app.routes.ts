@@ -10,8 +10,8 @@ import{ContactUsComponent} from './components/common-components/contact-us/conta
 import{FaqComponent} from './components/common-components/faq/faq.component';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'common/login', component: LoginComponent },
+  { path: 'common/register', component: RegisterComponent },
   { path: 'admin', component: AdminComponent, canActivate: [authGuard] },
   { path: '', redirectTo: 'common/landing', pathMatch: 'full' },
   { path: 'common/landing', component: LandingPageComponent },
