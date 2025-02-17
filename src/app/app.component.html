@@ -9,6 +9,22 @@
   <router-outlet></router-outlet>
   <app-footer-common></app-footer-common>
 </div>
-<div *ngIf="!isAdmin() && !isCommon()">
+<div *ngIf="isStudent()">
+  <app-header-student></app-header-student>
   <router-outlet></router-outlet>
+  <app-footer-student></app-footer-student>
 </div>
+<div *ngIf="isEmployer()">
+  <app-header-employer></app-header-employer>
+  <router-outlet></router-outlet>
+  <app-footer-employer></app-footer-employer>
+</div>
+<div *ngIf="isJobSeeker()">
+  <app-header-jobseeker></app-header-jobseeker>
+  <router-outlet></router-outlet>
+  <app-footer-jobseeker></app-footer-jobseeker>
+</div>
+
+<!-- <div *ngIf="!isAdmin() && !isCommon()">
+  <router-outlet></router-outlet>
+</div> -->

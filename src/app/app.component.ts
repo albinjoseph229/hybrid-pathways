@@ -4,11 +4,17 @@ import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
+import { CommonModule } from '@angular/common';
 import { HeaderComponentAdmin } from './components/admin-components/header-admin/header.component';
 import { FooterComponentAdmin } from './components/admin-components/footer-admin/footer.component';
 import{HeaderComponentCommon} from './components/common-components/header-common/header.component';
 import{FooterComponentCommon} from './components/common-components/footer-common/footer.component';
-import { CommonModule } from '@angular/common';
+import{HeaderStudentComponent} from './components/student-components/header-student/header-student.component';
+import{FooterStudentComponent} from './components/student-components/footer-student/footer-student.component';
+import { HeaderEmployerComponent } from './components/employer-components/header-employer/header-employer.component';
+import { FooterEmployerComponent } from './components/employer-components/footer-employer/footer-employer.component';
+import{HeaderJobseekerComponent} from './components/jobseeker-components/header-jobseeker/header-jobseeker.component';
+import{FooterJobseekerComponent} from './components/jobseeker-components/footer-jobseeker/footer-jobseeker.component';
 
 @Component({
   selector: 'app-root',
@@ -17,11 +23,17 @@ import { CommonModule } from '@angular/common';
     RouterOutlet,
     ButtonModule,
     ToastModule,
+    CommonModule,
     HeaderComponentAdmin,
     HeaderComponentCommon,
     FooterComponentAdmin,
     FooterComponentCommon,
-    CommonModule
+    HeaderStudentComponent,
+    FooterStudentComponent,
+    HeaderEmployerComponent,
+    FooterEmployerComponent,
+    HeaderJobseekerComponent,
+    FooterJobseekerComponent,
   ],
   providers: [MessageService],
   templateUrl: './app.component.html',
@@ -37,6 +49,15 @@ export class AppComponent {
 
   isCommon(): boolean {
     return this.router.url.startsWith('/common');
+  }
+  isStudent(): boolean {
+    return this.router.url.startsWith('/student');
+  }
+  isEmployer(): boolean {
+    return this.router.url.startsWith('/employer');
+  }
+  isJobSeeker(): boolean {
+    return this.router.url.startsWith('/jobseeker');
   }
 
 }

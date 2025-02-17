@@ -8,6 +8,9 @@ import { LogoutComponent } from './components/common-components/logout/logout.co
 import{AboutUsComponent} from './components/common-components/about-us/about-us.component';
 import{ContactUsComponent} from './components/common-components/contact-us/contact-us.component';
 import{FaqComponent} from './components/common-components/faq/faq.component';
+import { StudentHomepageComponent } from './components/student-components/student-homepage/student-homepage.component';
+import { EmployerHomepageComponent } from './components/employer-components/employer-homepage/employer-homepage.component';
+import { JobseekerHomepageComponent } from './components/jobseeker-components/jobseeker-homepage/jobseeker-homepage.component';
 
 export const routes: Routes = [
   { path: 'common/login', component: LoginComponent },
@@ -18,5 +21,8 @@ export const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   {path: 'common/about',component:AboutUsComponent},
   {path:'common/contact',component:ContactUsComponent},
-  {path:'common/faq',component:FaqComponent}
+  {path:'common/faq',component:FaqComponent},
+  {path:'student/homepage',component:StudentHomepageComponent},
+  {path:'employer/homepage',component:EmployerHomepageComponent},
+  {path:'jobseeker/homepage',component:JobseekerHomepageComponent},
 ];
