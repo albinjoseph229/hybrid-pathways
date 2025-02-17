@@ -24,6 +24,11 @@
   <router-outlet></router-outlet>
   <app-footer-jobseeker></app-footer-jobseeker>
 </div>
+<div *ngIf="isStudyAbroad()">
+  <app-header-jobseeker></app-header-jobseeker>
+  <router-outlet></router-outlet>
+  <app-footer-jobseeker></app-footer-jobseeker>
+</div>
 
 <!-- <div *ngIf="!isAdmin() && !isCommon()">
   <router-outlet></router-outlet>
