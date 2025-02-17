@@ -9,12 +9,12 @@ import { HeaderComponentAdmin } from './components/admin-components/header-admin
 import { FooterComponentAdmin } from './components/admin-components/footer-admin/footer.component';
 import{HeaderComponentCommon} from './components/common-components/header-common/header.component';
 import{FooterComponentCommon} from './components/common-components/footer-common/footer.component';
-import{HeaderStudentComponent} from './components/student-components/header-student/header-student.component';
-import{FooterStudentComponent} from './components/student-components/footer-student/footer-student.component';
-import { HeaderEmployerComponent } from './components/employer-components/header-employer/header-employer.component';
-import { FooterEmployerComponent } from './components/employer-components/footer-employer/footer-employer.component';
-import{HeaderJobseekerComponent} from './components/jobseeker-components/header-jobseeker/header-jobseeker.component';
-import{FooterJobseekerComponent} from './components/jobseeker-components/footer-jobseeker/footer-jobseeker.component';
+import{HeaderStudentComponent} from './components/hybrid-studyabroad/student-components/header-student/header-student.component';
+import{FooterStudentComponent} from './components/hybrid-studyabroad/student-components/footer-student/footer-student.component';
+import { HeaderEmployerComponent } from './components/hybrid-overseas/employer-components/header-employer/header-employer.component';
+import { FooterEmployerComponent } from './components/hybrid-overseas/employer-components/footer-employer/footer-employer.component';
+import{HeaderJobseekerComponent} from './components/hybrid-overseas/jobseeker-components/header-jobseeker/header-jobseeker.component';
+import{FooterJobseekerComponent} from './components/hybrid-overseas/jobseeker-components/footer-jobseeker/footer-jobseeker.component';
 
 @Component({
   selector: 'app-root',

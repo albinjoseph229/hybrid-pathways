@@ -3,14 +3,14 @@ import { LoginComponent } from './components/common-components/login/login.compo
 import { RegisterComponent } from './components/common-components/register/register.component';
 import { AdminComponent } from './components/admin-components/admin/admin.component';
 import { authGuard } from './guards/auth.guard';
-import { LandingPageComponent } from './components/landing-page-components/landing-page/landing-page.component';
+import { LandingPageComponent } from './components/common-components/landing-page/landing-page.component';
 import { LogoutComponent } from './components/common-components/logout/logout.component';
 import{AboutUsComponent} from './components/common-components/about-us/about-us.component';
 import{ContactUsComponent} from './components/common-components/contact-us/contact-us.component';
 import{FaqComponent} from './components/common-components/faq/faq.component';
-import { StudentHomepageComponent } from './components/student-components/student-homepage/student-homepage.component';
-import { EmployerHomepageComponent } from './components/employer-components/employer-homepage/employer-homepage.component';
-import { JobseekerHomepageComponent } from './components/jobseeker-components/jobseeker-homepage/jobseeker-homepage.component';
+import { StudentHomepageComponent } from './components/hybrid-studyabroad/student-components/student-homepage/student-homepage.component';
+import { EmployerHomepageComponent } from './components/hybrid-overseas/employer-components/employer-homepage/employer-homepage.component';
+import { JobseekerHomepageComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-homepage/jobseeker-homepage.component';
 
 export const routes: Routes = [
   { path: 'common/login', component: LoginComponent },
