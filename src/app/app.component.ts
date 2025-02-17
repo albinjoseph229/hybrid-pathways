@@ -7,14 +7,14 @@ import { ToastModule } from 'primeng/toast';
 import { CommonModule } from '@angular/common';
 import { HeaderComponentAdmin } from './components/admin-components/header-admin/header.component';
 import { FooterComponentAdmin } from './components/admin-components/footer-admin/footer.component';
-import{HeaderComponentCommon} from './components/common-components/header-common/header.component';
-import{FooterComponentCommon} from './components/common-components/footer-common/footer.component';
-import{HeaderStudentComponent} from './components/hybrid-studyabroad/student-components/header-student/header-student.component';
-import{FooterStudentComponent} from './components/hybrid-studyabroad/student-components/footer-student/footer-student.component';
+import { HeaderComponentCommon } from './components/common-components/header-common/header.component';
+import { FooterComponentCommon } from './components/common-components/footer-common/footer.component';
+import { HeaderStudentComponent } from './components/hybrid-studyabroad/student-components/header-student/header-student.component';
+import { FooterStudentComponent } from './components/hybrid-studyabroad/student-components/footer-student/footer-student.component';
 import { HeaderEmployerComponent } from './components/hybrid-overseas/employer-components/header-employer/header-employer.component';
 import { FooterEmployerComponent } from './components/hybrid-overseas/employer-components/footer-employer/footer-employer.component';
-import{HeaderJobseekerComponent} from './components/hybrid-overseas/jobseeker-components/header-jobseeker/header-jobseeker.component';
-import{FooterJobseekerComponent} from './components/hybrid-overseas/jobseeker-components/footer-jobseeker/footer-jobseeker.component';
+import { HeaderJobseekerComponent } from './components/hybrid-overseas/jobseeker-components/header-jobseeker/header-jobseeker.component';
+import { FooterJobseekerComponent } from './components/hybrid-overseas/jobseeker-components/footer-jobseeker/footer-jobseeker.component';
 
 @Component({
   selector: 'app-root',
@@ -44,7 +44,7 @@ export class AppComponent {
 
   constructor(private router: Router) {}
   isAdmin(): boolean {
-    return this.router.url.startsWith('/admin',);
+    return this.router.url.startsWith('/admin');
   }
 
   isCommon(): boolean {
@@ -59,5 +59,4 @@ export class AppComponent {
   isJobSeeker(): boolean {
     return this.router.url.startsWith('/jobseeker');
   }
-
 }
