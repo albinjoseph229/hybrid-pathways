@@ -62,4 +62,7 @@ export class AppComponent {
   isStudyAbroad():boolean {
     return this.router.url.startsWith('/studyabroad');
   }
+  isOverseasCareer():boolean {
+    return this.router.url.startsWith('/overseas');
+  }
 }
