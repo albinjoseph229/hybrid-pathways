@@ -15,6 +15,7 @@ import { HeaderEmployerComponent } from './components/hybrid-overseas/employer-c
 import { FooterEmployerComponent } from './components/hybrid-overseas/employer-components/footer-employer/footer-employer.component';
 import { HeaderJobseekerComponent } from './components/hybrid-overseas/jobseeker-components/header-jobseeker/header-jobseeker.component';
 import { FooterJobseekerComponent } from './components/hybrid-overseas/jobseeker-components/footer-jobseeker/footer-jobseeker.component';
+import { StudyAbroadHeaderComponent } from './components/hybrid-studyabroad/study-abroad-header/study-abroad-header.component';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +35,7 @@ import { FooterJobseekerComponent } from './components/hybrid-overseas/jobseeker
     FooterEmployerComponent,
     HeaderJobseekerComponent,
     FooterJobseekerComponent,
+    StudyAbroadHeaderComponent
   ],
   providers: [MessageService],
   templateUrl: './app.component.html',
@@ -58,5 +60,11 @@ export class AppComponent {
   }
   isJobSeeker(): boolean {
     return this.router.url.startsWith('/jobseeker');
+  }
+  isStudyAbroad():boolean {
+    return this.router.url.startsWith('/studyabroad');
+  }
+  isOverseasCareer():boolean {
+    return this.router.url.startsWith('/overseas');
   }
 }

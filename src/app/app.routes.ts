@@ -11,6 +11,8 @@ import { FaqComponent } from './components/common-components/faq/faq.component';
 import { StudentHomepageComponent } from './components/hybrid-studyabroad/student-components/student-homepage/student-homepage.component';
 import { EmployerHomepageComponent } from './components/hybrid-overseas/employer-components/employer-homepage/employer-homepage.component';
 import { JobseekerHomepageComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-homepage/jobseeker-homepage.component';
+import { HomepageStudyabroadComponent } from './components/hybrid-studyabroad/homepage-studyabroad/homepage-studyabroad.component';
+import { HomepageOverseasComponent } from './components/hybrid-overseas/homepage-overseas/homepage-overseas.component';
 
 export const routes: Routes = [
   { path: 'common/login', component: LoginComponent },
@@ -25,4 +27,6 @@ export const routes: Routes = [
   { path: 'student/homepage', component: StudentHomepageComponent },
   { path: 'employer/homepage', component: EmployerHomepageComponent },
   { path: 'jobseeker/homepage', component: JobseekerHomepageComponent },
+  { path: 'studyabroad/homepage', component: HomepageStudyabroadComponent },
+  { path: 'overseas/homepage', component: HomepageOverseasComponent },
 ];

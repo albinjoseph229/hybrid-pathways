@@ -1,1 +1,150 @@
-<p>homepage-studyabroad works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Study Abroad</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+    <!-- Hero Section -->
+    <div class="bg-purple-600 text-white pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Your Journey to Global Education Starts Here</h1>
+            <p class="text-xl mb-8">Explore worldwide universities, courses, and make your study abroad dreams come true</p>
+            <button class="bg-white text-purple-600 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 font-bold">
+                Start Your Journey
+            </button>
+        </div>
+    </div>
+
+    <!-- Featured Universities Section -->
+    <div class="max-w-7xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-12">Top Universities</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="/api/placeholder/400/250" alt="University 1" class="w-full h-48 object-cover"/>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">University of Oxford</h3>
+                    <p class="text-gray-600 mb-4">United Kingdom</p>
+                    <a href="#" class="text-purple-600 hover:text-purple-700">Explore Programs →</a>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="/api/placeholder/400/250" alt="University 2" class="w-full h-48 object-cover"/>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Harvard University</h3>
+                    <p class="text-gray-600 mb-4">United States</p>
+                    <a href="#" class="text-purple-600 hover:text-purple-700">Explore Programs →</a>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="/api/placeholder/400/250" alt="University 3" class="w-full h-48 object-cover"/>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">University of Tokyo</h3>
+                    <p class="text-gray-600 mb-4">Japan</p>
+                    <a href="#" class="text-purple-600 hover:text-purple-700">Explore Programs →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest Blogs Section -->
+    <div class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Latest Updates & Blogs</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Blog 1" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">2025 Admission Trends</h3>
+                        <p class="text-gray-600 mb-4">Latest insights on international admission trends and requirements.</p>
+                        <a href="#" class="text-purple-600 hover:text-purple-700">Read More →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Blog 2" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Scholarship Guide</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive guide to securing international scholarships.</p>
+                        <a href="#" class="text-purple-600 hover:text-purple-700">Read More →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="Blog 3" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Student Life Abroad</h3>
+                        <p class="text-gray-600 mb-4">Real experiences from international students worldwide.</p>
+                        <a href="#" class="text-purple-600 hover:text-purple-700">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Search Section -->
+    <div class="max-w-7xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-3xl font-bold text-center mb-8">Find Your Perfect Course</h2>
+            <div class="grid md:grid-cols-4 gap-4">
+                <input type="text" placeholder="Course Name" class="p-3 border rounded-lg"/>
+                <select class="p-3 border rounded-lg">
+                    <option>Select Country</option>
+                    <option>USA</option>
+                    <option>UK</option>
+                    <option>Canada</option>
+                    <option>Australia</option>
+                </select>
+                <select class="p-3 border rounded-lg">
+                    <option>Select Level</option>
+                    <option>Bachelor's</option>
+                    <option>Master's</option>
+                    <option>PhD</option>
+                </select>
+                <button class="bg-purple-600 text-white p-3 rounded-lg hover:bg-purple-700 transition duration-300">
+                    Search Courses
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <div class="bg-purple-50 py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Hybrid Study Abroad</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-university text-4xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Top Universities</h3>
+                    <p class="text-gray-600">Access to world-renowned institutions</p>
+                </div>
+                <div class="text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-hands-helping text-4xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Expert Guidance</h3>
+                    <p class="text-gray-600">Personalized counseling and support</p>
+                </div>
+                <div class="text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-graduation-cap text-4xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Diverse Courses</h3>
+                    <p class="text-gray-600">Wide range of programs to choose from</p>
+                </div>
+                <div class="text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-dollar-sign text-4xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Scholarship Support</h3>
+                    <p class="text-gray-600">Help finding financial aid options</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
