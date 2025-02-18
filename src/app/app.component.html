@@ -30,8 +30,9 @@
   <app-footer-jobseeker></app-footer-jobseeker>
 </div>
 <div *ngIf="isOverseasCareer()">
+  <app-overseas-header></app-overseas-header>
   <router-outlet></router-outlet>
-  <app-footer-jobseeker></app-footer-jobseeker>
+  <app-overseas-footer></app-overseas-footer>
 </div>
 
 <!-- <div *ngIf="!isAdmin() && !isCommon()">

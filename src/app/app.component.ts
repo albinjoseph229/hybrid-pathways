@@ -16,6 +16,8 @@ import { FooterEmployerComponent } from './components/hybrid-overseas/employer-c
 import { HeaderJobseekerComponent } from './components/hybrid-overseas/jobseeker-components/header-jobseeker/header-jobseeker.component';
 import { FooterJobseekerComponent } from './components/hybrid-overseas/jobseeker-components/footer-jobseeker/footer-jobseeker.component';
 import { StudyAbroadHeaderComponent } from './components/hybrid-studyabroad/study-abroad-header/study-abroad-header.component';
+import { OverseasHeaderComponent } from "./components/hybrid-overseas/overseas-header/overseas-header.component";
+import { OverseasFooterComponent } from './components/hybrid-overseas/overseas-footer/overseas-footer.component';
 
 @Component({
   selector: 'app-root',
@@ -35,8 +37,10 @@ import { StudyAbroadHeaderComponent } from './components/hybrid-studyabroad/stud
     FooterEmployerComponent,
     HeaderJobseekerComponent,
     FooterJobseekerComponent,
-    StudyAbroadHeaderComponent
-  ],
+    StudyAbroadHeaderComponent,
+    OverseasHeaderComponent,
+    OverseasFooterComponent
+],
   providers: [MessageService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
