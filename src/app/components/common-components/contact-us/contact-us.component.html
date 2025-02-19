@@ -6,26 +6,11 @@
     <title>Contact Us - Hybrid Overseas</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script>
-        function showForm(userType) {
-            // Hide all forms first
-            document.getElementById('studentForm').style.display = 'none';
-            document.getElementById('jobSeekerForm').style.display = 'none';
-            document.getElementById('employerForm').style.display = 'none';
-            
-            // Show selected form
-            document.getElementById(userType + 'Form').style.display = 'block';
-            
-            // Update active state of buttons
-            document.querySelectorAll('.user-type-btn').forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white');
-                btn.classList.add('bg-white', 'text-blue-600');
-            });
-            
-            document.querySelector(`[onclick="showForm('${userType}')"]`).classList.remove('bg-white', 'text-blue-600');
-            document.querySelector(`[onclick="showForm('${userType}')"]`).classList.add('bg-blue-600', 'text-white');
+    <style>
+        .hidden {
+            display: none !important;
         }
-    </script>
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Main Content -->
@@ -54,28 +39,42 @@
 
         <!-- Contact Forms -->
         <div class="bg-white rounded-lg shadow-lg p-8">
-            <!-- Student Form -->
-            <form id="studentForm" class="space-y-6" style="display: none;">
-                <h3 class="text-xl font-bold mb-6">Student Contact Form</h3>
-                <!-- Form fields will be added based on requirements -->
-                <p class="text-gray-600">Student-specific form fields will appear here</p>
+            <form id="studentForm" class="space-y-4 hidden">
+                <h3 class="text-xl font-bold">Student Contact Form</h3>
+                <input type="text" placeholder="Full Name" class="w-full p-3 border rounded">
+                <input type="email" placeholder="Email" class="w-full p-3 border rounded">
+                <input type="tel" placeholder="Phone" class="w-full p-3 border rounded">
+                <input type="text" placeholder="Country of Study" class="w-full p-3 border rounded">
+                <input type="text" placeholder="Preferred Course" class="w-full p-3 border rounded">
+                <textarea placeholder="Message" class="w-full p-3 border rounded"></textarea>
+                <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded">Submit</button>
             </form>
 
-            <!-- Job Seeker Form -->
-            <form id="jobSeekerForm" class="space-y-6" style="display: none;">
-                <h3 class="text-xl font-bold mb-6">Job Seeker Contact Form</h3>
-                <!-- Form fields will be added based on requirements -->
-                <p class="text-gray-600">Job seeker-specific form fields will appear here</p>
+            <form id="jobSeekerForm" class="space-y-4 hidden">
+                <h3 class="text-xl font-bold">Job Seeker Contact Form</h3>
+                <input type="text" placeholder="Full Name" class="w-full p-3 border rounded">
+                <input type="email" placeholder="Email" class="w-full p-3 border rounded">
+                <input type="tel" placeholder="Phone" class="w-full p-3 border rounded">
+                <input type="text" placeholder="Country" class="w-full p-3 border rounded">
+                <input type="text" placeholder="Desired Job Role" class="w-full p-3 border rounded">
+                <input type="text" placeholder="Experience Level" class="w-full p-3 border rounded">
+                <input type="file" class="w-full p-3 border rounded">
+                <textarea placeholder="Message" class="w-full p-3 border rounded"></textarea>
+                <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded">Submit</button>
             </form>
 
-            <!-- Employer Form -->
-            <form id="employerForm" class="space-y-6" style="display: none;">
-                <h3 class="text-xl font-bold mb-6">Employer Contact Form</h3>
-                <!-- Form fields will be added based on requirements -->
-                <p class="text-gray-600">Employer-specific form fields will appear here</p>
+            <form id="employerForm" class="space-y-4 hidden">
+                <h3 class="text-xl font-bold">Employer Contact Form</h3>
+                <input type="text" placeholder="Company Name" class="w-full p-3 border rounded">
+                <input type="text" placeholder="Contact Person" class="w-full p-3 border rounded">
+                <input type="email" placeholder="Email" class="w-full p-3 border rounded">
+                <input type="tel" placeholder="Phone" class="w-full p-3 border rounded">
+                <input type="text" placeholder="Industry" class="w-full p-3 border rounded">
+                <textarea placeholder="Hiring Needs" class="w-full p-3 border rounded"></textarea>
+                <textarea placeholder="Message" class="w-full p-3 border rounded"></textarea>
+                <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded">Submit</button>
             </form>
 
-            <!-- Default Message -->
             <div id="defaultMessage" class="text-center text-gray-500">
                 <i class="fas fa-hand-point-up text-4xl mb-4"></i>
                 <p>Please select your user type above to see the relevant contact form</p>
@@ -97,7 +96,7 @@
             <div class="text-center">
                 <i class="fas fa-envelope text-2xl text-blue-600 mb-4"></i>
                 <h3 class="font-bold mb-2">Email</h3>
-                <!-- <p class="text-gray-600">info@hybridoverseas.com<br>support@hybridoverseas.com</p> -->
+                <!-- <p class="text-gray-600">info@example.com<br>support@example.com</p> -->
             </div>
         </div>
     </main>
@@ -108,5 +107,33 @@
             <p>&copy; 2025 Hybrid Overseas. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function showForm(userType) {
+            // Hide all forms
+            document.getElementById('studentForm').classList.add('hidden');
+            document.getElementById('jobSeekerForm').classList.add('hidden');
+            document.getElementById('employerForm').classList.add('hidden');
+            document.getElementById('defaultMessage').classList.add('hidden');
+
+            // Show selected form
+            document.getElementById(userType + 'Form').classList.remove('hidden');
+            
+            // Reset all buttons to default state
+            document.querySelectorAll('.user-type-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-white', 'text-blue-600');
+            });
+            
+            // Update clicked button style
+            event.currentTarget.classList.remove('bg-white', 'text-blue-600');
+            event.currentTarget.classList.add('bg-blue-600', 'text-white');
+        }
+
+        // Show default message on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('defaultMessage').classList.remove('hidden');
+        });
+    </script>
 </body>
 </html>
