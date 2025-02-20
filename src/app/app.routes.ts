@@ -17,7 +17,8 @@ import { HomepageOverseasComponent } from './components/hybrid-overseas/homepage
 export const routes: Routes = [
   { path: 'common/login', component: LoginComponent },
   { path: 'common/register', component: RegisterComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [authGuard] },
+  // { path: 'admin', component: AdminComponent, canActivate: [authGuard] },
+  { path: 'admin', component: AdminComponent},
   { path: '', redirectTo: 'common/landing', pathMatch: 'full' },
   { path: 'common/landing', component: LandingPageComponent },
   { path: 'logout', component: LogoutComponent },
