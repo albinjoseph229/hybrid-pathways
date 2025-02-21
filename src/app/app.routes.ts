@@ -13,6 +13,11 @@ import { EmployerHomepageComponent } from './components/hybrid-overseas/employer
 import { JobseekerHomepageComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-homepage/jobseeker-homepage.component';
 import { HomepageStudyabroadComponent } from './components/hybrid-studyabroad/homepage-studyabroad/homepage-studyabroad.component';
 import { HomepageOverseasComponent } from './components/hybrid-overseas/homepage-overseas/homepage-overseas.component';
+import {AdminViewEmployersComponent} from './components/admin-components/admin-view-employers/admin-view-employers.component'
+import {AdminViewJobseekersComponent} from './components/admin-components/admin-view-jobseekers/admin-view-jobseekers.component'
+import {AdminViewStudentsComponent} from './components/admin-components/admin-view-students/admin-view-students.component';
+import {AdminGiveUpdatesComponent} from './components/admin-components/admin-give-updates/admin-give-updates.component';
+
 
 export const routes: Routes = [
   { path: 'common/login', component: LoginComponent },
@@ -30,4 +35,8 @@ export const routes: Routes = [
   { path: 'jobseeker/homepage', component: JobseekerHomepageComponent },
   { path: 'studyabroad/homepage', component: HomepageStudyabroadComponent },
   { path: 'overseas/homepage', component: HomepageOverseasComponent },
+  {path: 'admin/viewemployers', component:AdminViewEmployersComponent},
+  {path: 'admin/viewjobseekers', component:AdminViewJobseekersComponent},
+  {path: 'admin/viewstudents', component:AdminViewStudentsComponent},
+  {path: 'admin/giveupdates', component:AdminGiveUpdatesComponent},
 ];
