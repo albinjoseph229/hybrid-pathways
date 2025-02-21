@@ -12,10 +12,12 @@ import { ButtonModule } from 'primeng/button';
 export class HeaderComponentAdmin {
   isAccordionOpen: { [key: string]: boolean } = {
     usersAccordion: false,
-    adminActionsAccordion: false
+    adminActionsAccordion: false,
+    accountAccordion:false,
+
   };
 
-  toggleAccordion(accordion: 'usersAccordion' | 'adminActionsAccordion') {
+  toggleAccordion(accordion: 'usersAccordion' | 'adminActionsAccordion'|'accountAccordion') {
     for (let key in this.isAccordionOpen) {
       if (key === accordion) {
         this.isAccordionOpen[key] = !this.isAccordionOpen[key];

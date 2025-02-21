@@ -20,6 +20,8 @@ import {AdminGiveUpdatesComponent} from './components/admin-components/admin-giv
 import {AdminAddCourseComponent} from './components/admin-components/admin-add-course/admin-add-course.component'
 import { AdminPostAdsComponent } from './components/admin-components/admin-post-ads/admin-post-ads.component';
 import { AdminPostCaseStudiesComponent } from './components/admin-components/admin-post-case-studies/admin-post-case-studies.component';
+import { AdminChangePasswordComponent } from './components/admin-components/admin-change-password/admin-change-password.component';
+
 
 export const routes: Routes = [
   { path: 'common/login', component: LoginComponent },
@@ -43,5 +45,7 @@ export const routes: Routes = [
   {path: 'admin/giveupdates', component:AdminGiveUpdatesComponent},
   {path: 'admin/addcourse', component:AdminAddCourseComponent},
   {path: 'admin/postads', component:AdminPostAdsComponent},
-  { path: 'admin/postcasestudies', component: AdminPostCaseStudiesComponent }
+  {path: 'admin/postcasestudies', component: AdminPostCaseStudiesComponent},
+  {path: 'admin/changepassword', component: AdminChangePasswordComponent},
+
 ];
