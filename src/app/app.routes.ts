@@ -17,7 +17,9 @@ import {AdminViewEmployersComponent} from './components/admin-components/admin-v
 import {AdminViewJobseekersComponent} from './components/admin-components/admin-view-jobseekers/admin-view-jobseekers.component'
 import {AdminViewStudentsComponent} from './components/admin-components/admin-view-students/admin-view-students.component';
 import {AdminGiveUpdatesComponent} from './components/admin-components/admin-give-updates/admin-give-updates.component';
-
+import {AdminAddCourseComponent} from './components/admin-components/admin-add-course/admin-add-course.component'
+import { AdminPostAdsComponent } from './components/admin-components/admin-post-ads/admin-post-ads.component';
+import { AdminPostCaseStudiesComponent } from './components/admin-components/admin-post-case-studies/admin-post-case-studies.component';
 
 export const routes: Routes = [
   { path: 'common/login', component: LoginComponent },
@@ -39,4 +41,7 @@ export const routes: Routes = [
   {path: 'admin/viewjobseekers', component:AdminViewJobseekersComponent},
   {path: 'admin/viewstudents', component:AdminViewStudentsComponent},
   {path: 'admin/giveupdates', component:AdminGiveUpdatesComponent},
+  {path: 'admin/addcourse', component:AdminAddCourseComponent},
+  {path: 'admin/postads', component:AdminPostAdsComponent},
+  { path: 'admin/postcasestudies', component: AdminPostCaseStudiesComponent }
 ];
