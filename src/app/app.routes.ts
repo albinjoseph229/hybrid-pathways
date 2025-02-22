@@ -67,6 +67,9 @@ export const routes: Routes = [
 
   //Employer Routes
   { path: 'employer/homepage', component: EmployerHomepageComponent },
+  { path: 'employer/aboutus', component: AboutUsComponent },
+  { path: 'employer/faq', component: FaqComponent },
+  { path: 'employer/contactus', component: ContactUsComponent },
 
 
 ];
