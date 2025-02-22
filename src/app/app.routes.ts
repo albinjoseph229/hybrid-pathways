@@ -21,7 +21,10 @@ import {AdminAddCourseComponent} from './components/admin-components/admin-add-c
 import { AdminPostAdsComponent } from './components/admin-components/admin-post-ads/admin-post-ads.component';
 import { AdminPostCaseStudiesComponent } from './components/admin-components/admin-post-case-studies/admin-post-case-studies.component';
 import { AdminChangePasswordComponent } from './components/admin-components/admin-change-password/admin-change-password.component';
-
+import { AdminViewCoursesComponent } from './components/admin-components/admin-view-courses/admin-view-courses.component';
+import {AdminViewUpdatesComponent} from './components/admin-components/admin-view-updates/admin-view-updates.component';
+import {AdminViewCaseStudiesComponent} from './components/admin-components/admin-view-case-studies/admin-view-case-studies.component';
+import {AdminViewAdsComponent} from './components/admin-components/admin-view-ads/admin-view-ads.component';
 
 export const routes: Routes = [
   { path: 'common/login', component: LoginComponent },
@@ -47,5 +50,9 @@ export const routes: Routes = [
   {path: 'admin/postads', component:AdminPostAdsComponent},
   {path: 'admin/postcasestudies', component: AdminPostCaseStudiesComponent},
   {path: 'admin/changepassword', component: AdminChangePasswordComponent},
+  {path: 'admin/viewcourses', component: AdminViewCoursesComponent},
+  {path: 'admin/viewupdates', component: AdminViewUpdatesComponent},
+  {path: 'admin/viewcasestudies', component: AdminViewCaseStudiesComponent},
+  {path: 'admin/viewads', component: AdminViewAdsComponent},
 
 ];
