@@ -27,21 +27,31 @@ import {AdminViewCaseStudiesComponent} from './components/admin-components/admin
 import {AdminViewAdsComponent} from './components/admin-components/admin-view-ads/admin-view-ads.component';
 
 export const routes: Routes = [
+  //Common Module Routes
   { path: 'common/login', component: LoginComponent },
   { path: 'common/register', component: RegisterComponent },
-  // { path: 'admin', component: AdminComponent, canActivate: [authGuard] },
-  { path: 'admin', component: AdminComponent},
   { path: '', redirectTo: 'common/landing', pathMatch: 'full' },
   { path: 'common/landing', component: LandingPageComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'common/about', component: AboutUsComponent },
   { path: 'common/contact', component: ContactUsComponent },
   { path: 'common/faq', component: FaqComponent },
+
+  //Student Routes
   { path: 'student/homepage', component: StudentHomepageComponent },
-  { path: 'employer/homepage', component: EmployerHomepageComponent },
+
+  //Job Seeker Routes
   { path: 'jobseeker/homepage', component: JobseekerHomepageComponent },
+
+  //Study Abroad Routes
   { path: 'studyabroad/homepage', component: HomepageStudyabroadComponent },
+
+  //Overseas Routes
   { path: 'overseas/homepage', component: HomepageOverseasComponent },
+
+  //Admin Routes
+  // { path: 'admin', component: AdminComponent, canActivate: [authGuard] },
+  { path: 'admin', component: AdminComponent},
   {path: 'admin/viewemployers', component:AdminViewEmployersComponent},
   {path: 'admin/viewjobseekers', component:AdminViewJobseekersComponent},
   {path: 'admin/viewstudents', component:AdminViewStudentsComponent},
@@ -54,5 +64,9 @@ export const routes: Routes = [
   {path: 'admin/viewupdates', component: AdminViewUpdatesComponent},
   {path: 'admin/viewcasestudies', component: AdminViewCaseStudiesComponent},
   {path: 'admin/viewads', component: AdminViewAdsComponent},
+
+  //Employer Routes
+  { path: 'employer/homepage', component: EmployerHomepageComponent },
+
 
 ];
