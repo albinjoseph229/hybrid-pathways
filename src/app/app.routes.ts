@@ -25,6 +25,7 @@ import { AdminViewCoursesComponent } from './components/admin-components/admin-v
 import {AdminViewUpdatesComponent} from './components/admin-components/admin-view-updates/admin-view-updates.component';
 import {AdminViewCaseStudiesComponent} from './components/admin-components/admin-view-case-studies/admin-view-case-studies.component';
 import {AdminViewAdsComponent} from './components/admin-components/admin-view-ads/admin-view-ads.component';
+import { JobseekerProfileComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-profile/jobseeker-profile.component';
 
 export const routes: Routes = [
   //Common Module Routes
@@ -39,9 +40,6 @@ export const routes: Routes = [
 
   //Student Routes
   { path: 'student/homepage', component: StudentHomepageComponent },
-
-  //Job Seeker Routes
-  { path: 'jobseeker/homepage', component: JobseekerHomepageComponent },
 
   //Study Abroad Routes
   { path: 'studyabroad/homepage', component: HomepageStudyabroadComponent },
@@ -67,6 +65,11 @@ export const routes: Routes = [
 
   //Employer Routes
   { path: 'employer/homepage', component: EmployerHomepageComponent },
+  { path: 'employer/aboutus', component: AboutUsComponent },
+  { path: 'employer/faq', component: FaqComponent },
+  { path: 'employer/contactus', component: ContactUsComponent },
 
-
+  //Jobseeker Routes
+  { path: 'jobseeker/homepage', component: JobseekerHomepageComponent },
+  { path: 'jobseeker/profile', component: JobseekerProfileComponent}
 ];
