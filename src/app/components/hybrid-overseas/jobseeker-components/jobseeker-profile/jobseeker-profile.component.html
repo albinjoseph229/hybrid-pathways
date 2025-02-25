@@ -1,500 +1,359 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobseeker Profile - Hybrid Overseas</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        .section-edit-btn {
-            transition: all 0.2s ease;
-        }
-        .section-edit-btn:hover {
-            transform: scale(1.05);
-        }
-        .edit-mode {
-            background-color: #f0f9ff;
-            border-left: 4px solid #3b82f6;
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 py-8">
-        <!-- Header -->
-        <div class="flex justify-between items-center mb-6">
+<!-- jobseeker-profile.component.html -->
+<div class="max-w-7xl mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+        <div>
+            <h1 class="text-3xl font-bold text-gray-800">Jobseeker Profile</h1>
+            <p class="text-gray-600">View and manage your personal and professional information</p>
+        </div>
+        <!-- <div class="flex space-x-4">
+            <button id="edit-all-btn" (click)="editAll()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition" [class.hidden]="isEditingAll">
+                <i class="fas fa-pen mr-2"></i>Edit All
+            </button>
+            <button id="save-all-btn" (click)="saveAll()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition" [class.hidden]="!isEditingAll">
+                <i class="fas fa-save mr-2"></i>Save All
+            </button>
+        </div> -->
+    </div>
+
+    <!-- Profile Header -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+            <div class="relative">
+                <img [src]="profilePhoto || '/assets/placeholder-profile.png'" class="rounded-full w-32 h-32 object-cover border-4 border-blue-100" alt="Profile photo">
+                <button (click)="uploadPhoto()" class="absolute bottom-0 right-0 bg-blue-600 text-white p-2 rounded-full shadow-md hover:bg-blue-700">
+                    <i class="fas fa-camera"></i>
+                </button>
+            </div>
+            <div class="flex-1 text-center sm:text-left">
+                <h2 class="text-2xl font-bold">{{ personalInfo.firstName }} {{ personalInfo.lastName }}</h2>
+                <p class="text-gray-600 mb-2">{{ contactInfo.email }} | {{ contactInfo.phone }}</p>
+                <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">{{ travelDocuments.visaType }} Visa</span>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">{{ addressInfo.country }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Personal Information -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="personal-info-section" [class.edit-mode]="editingSections.personal">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold text-gray-800">Personal Information</h2>
+            <button class="section-edit-btn text-blue-600 hover:text-blue-800 focus:outline-none" (click)="toggleSectionEdit('personal')">
+                <i class="fas fa-pen"></i>
+            </button>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
             <div>
-                <h1 class="text-3xl font-bold text-gray-800">Jobseeker Profile</h1>
-                <p class="text-gray-600">View and manage your personal and professional information</p>
+                <p class="text-sm font-medium text-gray-500 mb-1">First Name</p>
+                <p [hidden]="editingSections.personal">{{ personalInfo.firstName }}</p>
+                <input *ngIf="editingSections.personal" type="text" [(ngModel)]="personalInfo.firstName" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
             </div>
-            <!-- <div class="flex space-x-4">
-                <button id="edit-all-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
-                    <i class="fas fa-pen mr-2"></i>Edit All
-                </button>
-                <button id="save-all-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition hidden">
-                    <i class="fas fa-save mr-2"></i>Save All
-                </button>
-            </div> -->
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Last Name</p>
+                <p [hidden]="editingSections.personal">{{ personalInfo.lastName }}</p>
+                <input *ngIf="editingSections.personal" type="text" [(ngModel)]="personalInfo.lastName" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Date of Birth</p>
+                <p [hidden]="editingSections.personal">{{ personalInfo.dateOfBirth | date }}</p>
+                <input *ngIf="editingSections.personal" type="date" [(ngModel)]="personalInfo.dateOfBirth" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Gender</p>
+                <p [hidden]="editingSections.personal">{{ personalInfo.gender }}</p>
+                <select *ngIf="editingSections.personal" [(ngModel)]="personalInfo.gender" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Nationality</p>
+                <p [hidden]="editingSections.personal">{{ personalInfo.nationality }}</p>
+                <input *ngIf="editingSections.personal" type="text" [(ngModel)]="personalInfo.nationality" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Marital Status</p>
+                <p [hidden]="editingSections.personal">{{ personalInfo.maritalStatus }}</p>
+                <select *ngIf="editingSections.personal" [(ngModel)]="personalInfo.maritalStatus" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                </select>
+            </div>
         </div>
+    </div>
 
-        <!-- Profile Header -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                <div class="relative">
-                    <img src="/api/placeholder/150/150" class="rounded-full w-32 h-32 object-cover border-4 border-blue-100" alt="Profile photo">
-                    <button class="absolute bottom-0 right-0 bg-blue-600 text-white p-2 rounded-full shadow-md hover:bg-blue-700">
-                        <i class="fas fa-camera"></i>
-                    </button>
-                </div>
-                <div class="flex-1 text-center sm:text-left">
-                    <h2 class="text-2xl font-bold">John Doe</h2>
-                    <p class="text-gray-600 mb-2">john.doe-example.com | +1 234 567 8900</p>
-                    <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Student Visa</span>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">United States</span>
-                    </div>
-                </div>
+    <!-- Contact Information -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="contact-info-section" [class.edit-mode]="editingSections.contact">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold text-gray-800">Contact Information</h2>
+            <button class="section-edit-btn text-blue-600 hover:text-blue-800 focus:outline-none" (click)="toggleSectionEdit('contact')">
+                <i class="fas fa-pen"></i>
+            </button>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Email</p>
+                <p [hidden]="editingSections.contact">{{ contactInfo.email }}</p>
+                <input *ngIf="editingSections.contact" type="email" [(ngModel)]="contactInfo.email" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Phone Number</p>
+                <p [hidden]="editingSections.contact">{{ contactInfo.phone }}</p>
+                <input *ngIf="editingSections.contact" type="tel" [(ngModel)]="contactInfo.phone" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Alternative Email</p>
+                <p [hidden]="editingSections.contact">{{ contactInfo.alternativeEmail }}</p>
+                <input *ngIf="editingSections.contact" type="email" [(ngModel)]="contactInfo.alternativeEmail" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Emergency Contact</p>
+                <p [hidden]="editingSections.contact">{{ contactInfo.emergencyContact }}</p>
+                <input *ngIf="editingSections.contact" type="tel" [(ngModel)]="contactInfo.emergencyContact" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
             </div>
         </div>
+    </div>
 
-        <!-- Personal Information -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="personal-info-section">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-bold text-gray-800">Personal Information</h2>
-                <button class="section-edit-btn text-blue-600 hover:text-blue-800 focus:outline-none">
-                    <i class="fas fa-pen"></i>
-                </button>
+    <!-- Address Information -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="address-info-section" [class.edit-mode]="editingSections.address">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold text-gray-800">Address Information</h2>
+            <button class="section-edit-btn text-blue-600 hover:text-blue-800 focus:outline-none" (click)="toggleSectionEdit('address')">
+                <i class="fas fa-pen"></i>
+            </button>
+        </div>
+        <div class="space-y-6">
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Street Address</p>
+                <p [hidden]="editingSections.address">{{ addressInfo.streetAddress }}</p>
+                <input *ngIf="editingSections.address" type="text" [(ngModel)]="addressInfo.streetAddress" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
             </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div>
+                    <p class="text-sm font-medium text-gray-500 mb-1">City</p>
+                    <p [hidden]="editingSections.address">{{ addressInfo.city }}</p>
+                    <input *ngIf="editingSections.address" type="text" [(ngModel)]="addressInfo.city" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-500 mb-1">State/Province</p>
+                    <p [hidden]="editingSections.address">{{ addressInfo.state }}</p>
+                    <input *ngIf="editingSections.address" type="text" [(ngModel)]="addressInfo.state" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-500 mb-1">Postal Code</p>
+                    <p [hidden]="editingSections.address">{{ addressInfo.postalCode }}</p>
+                    <input *ngIf="editingSections.address" type="text" [(ngModel)]="addressInfo.postalCode" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-500 mb-1">Country</p>
+                <p [hidden]="editingSections.address">{{ addressInfo.country }}</p>
+                <select *ngIf="editingSections.address" [(ngModel)]="addressInfo.country" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+                    <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Travel Documents -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="travel-docs-section" [class.edit-mode]="editingSections.travel">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold text-gray-800">Travel Documents</h2>
+            <button class="section-edit-btn text-blue-600 hover:text-blue-800 focus:outline-none" (click)="toggleSectionEdit('travel')">
+                <i class="fas fa-pen"></i>
+            </button>
+        </div>
+        <div class="space-y-6">
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">First Name</p>
-                    <p class="view-mode">John</p>
-                    <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="John">
+                    <p class="text-sm font-medium text-gray-500 mb-1">Passport Number</p>
+                    <p [hidden]="editingSections.travel">{{ travelDocuments.passportNumber }}</p>
+                    <input *ngIf="editingSections.travel" type="text" [(ngModel)]="travelDocuments.passportNumber" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">Last Name</p>
-                    <p class="view-mode">Doe</p>
-                    <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="Doe">
-                </div>
-                <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">Date of Birth</p>
-                    <p class="view-mode">01/15/1990</p>
-                    <input type="date" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="1990-01-15">
-                </div>
-                <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">Gender</p>
-                    <p class="view-mode">Male</p>
-                    <select class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
-                        <option selected>Male</option>
-                        <option>Female</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-                <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">Nationality</p>
-                    <p class="view-mode">American</p>
-                    <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="American">
-                </div>
-                <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">Marital Status</p>
-                    <p class="view-mode">Single</p>
-                    <select class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
-                        <option selected>Single</option>
-                        <option>Married</option>
-                        <option>Divorced</option>
-                        <option>Widowed</option>
-                    </select>
+                    <p class="text-sm font-medium text-gray-500 mb-1">Passport Expiry Date</p>
+                    <p [hidden]="editingSections.travel">{{ travelDocuments.passportExpiryDate | date }}</p>
+                    <input *ngIf="editingSections.travel" type="date" [(ngModel)]="travelDocuments.passportExpiryDate" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
                 </div>
             </div>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="contact-info-section">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-bold text-gray-800">Contact Information</h2>
-                <button class="section-edit-btn text-blue-600 hover:text-blue-800 focus:outline-none">
-                    <i class="fas fa-pen"></i>
-                </button>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">Email</p>
-                    <p class="view-mode">john.doe-example.com</p>
-                    <input type="email" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="john.doe@example.com">
-                </div>
-                <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">Phone Number</p>
-                    <p class="view-mode">+1 234 567 8900</p>
-                    <input type="tel" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="+1 234 567 8900">
-                </div>
-                <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">Alternative Email</p>
-                    <p class="view-mode">johndoe.personal-gmail.com</p>
-                    <input type="email" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="johndoe.personal@gmail.com">
-                </div>
-                <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">Emergency Contact</p>
-                    <p class="view-mode">+1 987 654 3210 (Jane Doe)</p>
-                    <input type="tel" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="+1 987 654 3210 (Jane Doe)">
-                </div>
-            </div>
-        </div>
-
-        <!-- Address Information -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="address-info-section">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-bold text-gray-800">Address Information</h2>
-                <button class="section-edit-btn text-blue-600 hover:text-blue-800 focus:outline-none">
-                    <i class="fas fa-pen"></i>
-                </button>
-            </div>
-            <div class="space-y-6">
-                <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">Street Address</p>
-                    <p class="view-mode">123 Main Street, Apt 4B</p>
-                    <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="123 Main Street, Apt 4B">
-                </div>
+            <div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-3">Visa Information</h3>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div>
-                        <p class="text-sm font-medium text-gray-500 mb-1">City</p>
-                        <p class="view-mode">New York</p>
-                        <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="New York">
+                        <p class="text-sm font-medium text-gray-500 mb-1">Visa Type</p>
+                        <p [hidden]="editingSections.travel">{{ travelDocuments.visaType }}</p>
+                        <select *ngIf="editingSections.travel" [(ngModel)]="travelDocuments.visaType" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+                            <option value="Tourist">Tourist</option>
+                            <option value="Student">Student</option>
+                            <option value="Work">Work</option>
+                            <option value="Business">Business</option>
+                        </select>
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-500 mb-1">State/Province</p>
-                        <p class="view-mode">NY</p>
-                        <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="NY">
+                        <p class="text-sm font-medium text-gray-500 mb-1">Visa Number</p>
+                        <p [hidden]="editingSections.travel">{{ travelDocuments.visaNumber }}</p>
+                        <input *ngIf="editingSections.travel" type="text" [(ngModel)]="travelDocuments.visaNumber" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-500 mb-1">Postal Code</p>
-                        <p class="view-mode">10001</p>
-                        <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="10001">
+                        <p class="text-sm font-medium text-gray-500 mb-1">Visa Expiry Date</p>
+                        <p [hidden]="editingSections.travel">{{ travelDocuments.visaExpiryDate | date }}</p>
+                        <input *ngIf="editingSections.travel" type="date" [(ngModel)]="travelDocuments.visaExpiryDate" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
                     </div>
-                </div>
-                <div>
-                    <p class="text-sm font-medium text-gray-500 mb-1">Country</p>
-                    <p class="view-mode">United States</p>
-                    <select class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
-                        <option selected>United States</option>
-                        <option>Canada</option>
-                        <option>United Kingdom</option>
-                        <option>Australia</option>
-                    </select>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Travel Documents -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="travel-docs-section">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-bold text-gray-800">Travel Documents</h2>
-                <button class="section-edit-btn text-blue-600 hover:text-blue-800 focus:outline-none">
+    <!-- Educational Qualifications -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="education-section">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold text-gray-800">Educational Qualifications</h2>
+            <div class="flex gap-2">
+                <button class="text-blue-600 hover:text-blue-800 focus:outline-none" (click)="toggleSectionEdit('education')">
                     <i class="fas fa-pen"></i>
                 </button>
+                <button class="text-blue-600 hover:text-blue-800" (click)="addEducation()">
+                    <i class="fas fa-plus"></i> Add
+                </button>
             </div>
-            <div class="space-y-6">
+        </div>
+        <div class="space-y-6">
+            <!-- Education Entry -->
+            <div *ngFor="let edu of educationList; let i = index" class="border rounded-lg p-4" [class.edit-mode]="edu.editing">
+                <div class="flex justify-between mb-2">
+                    <h3 class="font-semibold">{{ edu.degree }}</h3>
+                    <div class="flex gap-2">
+                        <button class="text-blue-600 hover:text-blue-800" (click)="toggleEducationEdit(i)">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                        <button class="text-red-600 hover:text-red-800" (click)="removeEducation(i)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <p class="text-sm font-medium text-gray-500 mb-1">Passport Number</p>
-                        <p class="view-mode">P1234567</p>
-                        <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="P1234567">
+                        <p class="text-sm font-medium text-gray-500 mb-1">Institution</p>
+                        <p [hidden]="edu.editing">{{ edu.institution }}</p>
+                        <input *ngIf="edu.editing" type="text" [(ngModel)]="edu.institution" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-500 mb-1">Passport Expiry Date</p>
-                        <p class="view-mode">12/31/2027</p>
-                        <input type="date" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="2027-12-31">
+                        <p class="text-sm font-medium text-gray-500 mb-1">Graduation Year</p>
+                        <p [hidden]="edu.editing">{{ edu.graduationYear }}</p>
+                        <input *ngIf="edu.editing" type="number" [(ngModel)]="edu.graduationYear" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
                     </div>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Visa Information</h3>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div>
-                            <p class="text-sm font-medium text-gray-500 mb-1">Visa Type</p>
-                            <p class="view-mode">Student</p>
-                            <select class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
-                                <option>Tourist</option>
-                                <option selected>Student</option>
-                                <option>Work</option>
-                                <option>Business</option>
-                            </select>
-                        </div>
-                        <div>
-                            <p class="text-sm font-medium text-gray-500 mb-1">Visa Number</p>
-                            <p class="view-mode">V9876543</p>
-                            <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="V9876543">
-                        </div>
-                        <div>
-                            <p class="text-sm font-medium text-gray-500 mb-1">Visa Expiry Date</p>
-                            <p class="view-mode">06/15/2026</p>
-                            <input type="date" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="2026-06-15">
-                        </div>
+                    <div class="md:col-span-2">
+                        <p class="text-sm font-medium text-gray-500 mb-1">Additional Information</p>
+                        <p [hidden]="edu.editing">{{ edu.additionalInfo }}</p>
+                        <textarea *ngIf="edu.editing" [(ngModel)]="edu.additionalInfo" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" rows="2"></textarea>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Educational Qualifications -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="education-section">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-bold text-gray-800">Educational Qualifications</h2>
-                <div class="flex gap-2">
-                    <button class="section-edit-btn text-blue-600 hover:text-blue-800 focus:outline-none">
-                        <i class="fas fa-pen"></i>
-                    </button>
-                    <button class="text-blue-600 hover:text-blue-800">
-                        <i class="fas fa-plus"></i> Add
-                    </button>
-                </div>
+    <!-- Work Experience -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="work-experience-section">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold text-gray-800">Work Experience</h2>
+            <div class="flex gap-2">
+                <button class="text-blue-600 hover:text-blue-800 focus:outline-none" (click)="toggleSectionEdit('work')">
+                    <i class="fas fa-pen"></i>
+                </button>
+                <button class="text-blue-600 hover:text-blue-800" (click)="addWorkExperience()">
+                    <i class="fas fa-plus"></i> Add
+                </button>
             </div>
-            <div class="space-y-6">
-                <!-- Education Entry 1 -->
-                <div class="border rounded-lg p-4">
-                    <div class="flex justify-between mb-2">
-                        <h3 class="font-semibold">Bachelor of Science, Computer Science</h3>
-                        <div class="flex gap-2">
-                            <button class="text-blue-600 hover:text-blue-800 entry-edit-btn">
-                                <i class="fas fa-pen"></i>
-                            </button>
-                            <button class="text-red-600 hover:text-red-800">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <p class="text-sm font-medium text-gray-500 mb-1">Institution</p>
-                            <p class="view-mode">Massachusetts Institute of Technology</p>
-                            <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="Massachusetts Institute of Technology">
-                        </div>
-                        <div>
-                            <p class="text-sm font-medium text-gray-500 mb-1">Graduation Year</p>
-                            <p class="view-mode">2020</p>
-                            <input type="number" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="2020">
-                        </div>
-                        <div class="md:col-span-2">
-                            <p class="text-sm font-medium text-gray-500 mb-1">Additional Information</p>
-                            <p class="view-mode">Graduated with honors. GPA: 3.8/4.0</p>
-                            <textarea class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" rows="2">Graduated with honors. GPA: 3.8/4.0</textarea>
-                        </div>
+        </div>
+        <div class="space-y-6">
+            <!-- Experience Entry -->
+            <div *ngFor="let exp of workExperienceList; let i = index" class="border rounded-lg p-4" [class.edit-mode]="exp.editing">
+                <div class="flex justify-between mb-2">
+                    <h3 class="font-semibold">{{ exp.position }}</h3>
+                    <div class="flex gap-2">
+                        <button class="text-blue-600 hover:text-blue-800" (click)="toggleWorkEdit(i)">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                        <button class="text-red-600 hover:text-red-800" (click)="removeWorkExperience(i)">
+                            <i class="fas fa-trash"></i>
+                        </button>
                     </div>
                 </div>
-                
-                <!-- Education Entry 2 -->
-                <div class="border rounded-lg p-4">
-                    <div class="flex justify-between mb-2">
-                        <h3 class="font-semibold">High School Diploma</h3>
-                        <div class="flex gap-2">
-                            <button class="text-blue-600 hover:text-blue-800 entry-edit-btn">
-                                <i class="fas fa-pen"></i>
-                            </button>
-                            <button class="text-red-600 hover:text-red-800">
-                                <i class="fas fa-trash"></i>
-                            </button>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500 mb-1">Company</p>
+                        <p [hidden]="exp.editing">{{ exp.company }}</p>
+                        <input *ngIf="exp.editing" type="text" [(ngModel)]="exp.company" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-500 mb-1">Duration</p>
+                        <p [hidden]="exp.editing">{{ exp.startDate | date }} - {{ exp.endDate ? (exp.endDate | date) : 'Present' }}</p>
+                        <div *ngIf="exp.editing" class="grid grid-cols-2 gap-2">
+                            <input type="date" [(ngModel)]="exp.startDate" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+                            <input type="date" [(ngModel)]="exp.endDate" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
                         </div>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <p class="text-sm font-medium text-gray-500 mb-1">Institution</p>
-                            <p class="view-mode">Lincoln High School</p>
-                            <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="Lincoln High School">
-                        </div>
-                        <div>
-                            <p class="text-sm font-medium text-gray-500 mb-1">Graduation Year</p>
-                            <p class="view-mode">2016</p>
-                            <input type="number" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="2016">
-                        </div>
+                    <div class="md:col-span-2">
+                        <p class="text-sm font-medium text-gray-500 mb-1">Job Description</p>
+                        <p [hidden]="exp.editing">{{ exp.description }}</p>
+                        <textarea *ngIf="exp.editing" [(ngModel)]="exp.description" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Work Experience -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6 relative" id="work-experience-section">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-bold text-gray-800">Work Experience</h2>
-                <div class="flex gap-2">
-                    <button class="section-edit-btn text-blue-600 hover:text-blue-800 focus:outline-none">
-                        <i class="fas fa-pen"></i>
-                    </button>
-                    <button class="text-blue-600 hover:text-blue-800">
-                        <i class="fas fa-plus"></i> Add
-                    </button>
-                </div>
-            </div>
-            <div class="space-y-6">
-                <!-- Experience Entry 1 -->
-                <div class="border rounded-lg p-4">
-                    <div class="flex justify-between mb-2">
-                        <h3 class="font-semibold">Software Engineer</h3>
-                        <div class="flex gap-2">
-                            <button class="text-blue-600 hover:text-blue-800 entry-edit-btn">
-                                <i class="fas fa-pen"></i>
-                            </button>
-                            <button class="text-red-600 hover:text-red-800">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-6">
+    <!-- Documents -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Documents</h2>
+        <div class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div *ngFor="let doc of documents; let i = index" class="border rounded-lg p-4 flex justify-between items-center">
+                    <div class="flex items-center">
+                        <i class="fas fa-file-pdf text-red-500 text-2xl mr-3"></i>
                         <div>
-                            <p class="text-sm font-medium text-gray-500 mb-1">Company</p>
-                            <p class="view-mode">Tech Solutions Inc.</p>
-                            <input type="text" class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="Tech Solutions Inc.">
-                        </div>
-                        <div>
-                            <p class="text-sm font-medium text-gray-500 mb-1">Duration</p>
-                            <p class="view-mode">January 2021 - Present</p>
-                            <div class="edit-mode hidden grid-cols-2 gap-2">
-                                <input type="date" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" value="2021-01-10">
-                                <input type="date" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
-                            </div>
-                        </div>
-                        <div class="md:col-span-2">
-                            <p class="text-sm font-medium text-gray-500 mb-1">Job Description</p>
-                            <p class="view-mode">Developing web applications using React and Node.js. Leading a team of 3 junior developers. Implementing CI/CD pipelines and maintaining code quality standards.</p>
-                            <textarea class="edit-mode hidden w-full p-2 border rounded focus:ring-2 focus:ring-blue-500" rows="3">Developing web applications using React and Node.js. Leading a team of 3 junior developers. Implementing CI/CD pipelines and maintaining code quality standards.</textarea>
+                            <p class="font-medium">{{ doc.name }}</p>
+                            <p class="text-sm text-gray-500">Uploaded: {{ doc.uploadDate | date }}</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Documents -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">Documents</h2>
-            <div class="space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="border rounded-lg p-4 flex justify-between items-center">
-                        <div class="flex items-center">
-                            <i class="fas fa-file-pdf text-red-500 text-2xl mr-3"></i>
-                            <div>
-                                <p class="font-medium">CV/Resume</p>
-                                <p class="text-sm text-gray-500">Uploaded: Jan 15, 2025</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <button class="text-blue-600 hover:text-blue-800">
-                                <i class="fas fa-download"></i>
-                            </button>
-                            <button class="text-blue-600 hover:text-blue-800">
-                                <i class="fas fa-upload"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="border rounded-lg p-4 flex justify-between items-center">
-                        <div class="flex items-center">
-                            <i class="fas fa-file-pdf text-red-500 text-2xl mr-3"></i>
-                            <div>
-                                <p class="font-medium">Passport Copy</p>
-                                <p class="text-sm text-gray-500">Uploaded: Dec 5, 2024</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <button class="text-blue-600 hover:text-blue-800">
-                                <i class="fas fa-download"></i>
-                            </button>
-                            <button class="text-blue-600 hover:text-blue-800">
-                                <i class="fas fa-upload"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="border rounded-lg p-4 flex justify-between items-center">
-                        <div class="flex items-center">
-                            <i class="fas fa-file-pdf text-red-500 text-2xl mr-3"></i>
-                            <div>
-                                <p class="font-medium">Visa Document</p>
-                                <p class="text-sm text-gray-500">Uploaded: Nov 20, 2024</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <button class="text-blue-600 hover:text-blue-800">
-                                <i class="fas fa-download"></i>
-                            </button>
-                            <button class="text-blue-600 hover:text-blue-800">
-                                <i class="fas fa-upload"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="border rounded-lg p-4 flex justify-between items-center border-dashed">
-                        <div class="flex items-center">
-                            <i class="fas fa-plus text-gray-400 text-2xl mr-3"></i>
-                            <div>
-                                <p class="font-medium text-gray-500">Upload New Document</p>
-                                <p class="text-sm text-gray-400">PDF, JPG or PNG</p>
-                            </div>
-                        </div>
+                    <div class="flex gap-2">
+                        <button class="text-blue-600 hover:text-blue-800" (click)="downloadDocument(doc)">
+                            <i class="fas fa-download"></i>
+                        </button>
                         <button class="text-blue-600 hover:text-blue-800">
                             <i class="fas fa-upload"></i>
                         </button>
                     </div>
                 </div>
+                
+                <div class="border rounded-lg p-4 flex justify-between items-center border-dashed">
+                    <div class="flex items-center">
+                        <i class="fas fa-plus text-gray-400 text-2xl mr-3"></i>
+                        <div>
+                            <p class="font-medium text-gray-500">Upload New Document</p>
+                            <p class="text-sm text-gray-400">PDF, JPG or PNG</p>
+                        </div>
+                    </div>
+                    <button class="text-blue-600 hover:text-blue-800" (click)="uploadDocument()">
+                        <i class="fas fa-upload"></i>
+                    </button>
+                </div>
             </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="flex justify-between mt-8">
-            <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition">
-                <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
-            </button>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition">
-                <i class="fas fa-check mr-2"></i>Save Changes
-            </button>
         </div>
     </div>
 
-    <script>
-        // Toggle edit mode for individual sections
-        document.querySelectorAll('.section-edit-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const section = this.closest('[id]');
-                toggleEditMode(section);
-            });
-        });
-
-        // Toggle edit mode for entries (education, work)
-        document.querySelectorAll('.entry-edit-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const entry = this.closest('.border');
-                toggleEditMode(entry);
-            });
-        });
-
-        // Edit all button
-        document.getElementById('edit-all-btn').addEventListener('click', function() {
-            document.querySelectorAll('.view-mode').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.edit-mode').forEach(el => el.classList.remove('hidden'));
-            document.querySelectorAll('[id]').forEach(section => {
-                section.classList.add('edit-mode');
-            });
-            
-            this.classList.add('hidden');
-            document.getElementById('save-all-btn').classList.remove('hidden');
-        });
-
-        // Save all button
-        document.getElementById('save-all-btn').addEventListener('click', function() {
-            document.querySelectorAll('.view-mode').forEach(el => el.classList.remove('hidden'));
-            document.querySelectorAll('.edit-mode').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('[id]').forEach(section => {
-                section.classList.remove('edit-mode');
-            });
-            
-            this.classList.add('hidden');
-            document.getElementById('edit-all-btn').classList.remove('hidden');
-        });
-
-        // Helper function to toggle edit mode
-        function toggleEditMode(container) {
-            const viewElements = container.querySelectorAll('.view-mode');
-            const editElements = container.querySelectorAll('.edit-mode');
-            
-            viewElements.forEach(el => el.classList.toggle('hidden'));
-            editElements.forEach(el => el.classList.toggle('hidden'));
-            container.classList.toggle('edit-mode');
-        }
-    </script>
-</body>
-</html>
+    <!-- Action Buttons -->
+    <div class="flex justify-between mt-8">
+        <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition" (click)="backToDashboard()">
+            <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
+        </button>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition" (click)="saveChanges()">
+            <i class="fas fa-check mr-2"></i>Save Changes
+        </button>
+    </div>
+</div>
