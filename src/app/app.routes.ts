@@ -30,6 +30,7 @@ import {PostJobOpeningsComponent} from './components/hybrid-overseas/employer-co
 import {ViewApplicantsComponent} from './components/hybrid-overseas/employer-components/view-applicants/view-applicants.component';
 import {EmployerRegistrationComponent} from './components/hybrid-overseas/employer-components/employer-registration/employer-registration.component'
 import { PageNotFoundComponent } from './components/common-components/page-not-found/page-not-found.component';
+import { JobseekerAppointmentsComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-appointments/jobseeker-appointments.component';
 
 export const routes: Routes = [
   //Common Module Routes
@@ -79,6 +80,7 @@ export const routes: Routes = [
   //Jobseeker Routes
   { path: 'jobseeker/homepage', component: JobseekerHomepageComponent },
   { path: 'jobseeker/profile', component: JobseekerProfileComponent},
+  { path: 'jobseeker/appointments', component: JobseekerAppointmentsComponent },
 
   // Wildcard Route for 404 Page
   { path: '**', component: PageNotFoundComponent },
