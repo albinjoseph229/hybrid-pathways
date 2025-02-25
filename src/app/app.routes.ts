@@ -26,6 +26,10 @@ import {AdminViewUpdatesComponent} from './components/admin-components/admin-vie
 import {AdminViewCaseStudiesComponent} from './components/admin-components/admin-view-case-studies/admin-view-case-studies.component';
 import {AdminViewAdsComponent} from './components/admin-components/admin-view-ads/admin-view-ads.component';
 import { JobseekerProfileComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-profile/jobseeker-profile.component';
+import {PostJobOpeningsComponent} from './components/hybrid-overseas/employer-components/post-job-openings/post-job-openings.component'
+import {ViewApplicantsComponent} from './components/hybrid-overseas/employer-components/view-applicants/view-applicants.component';
+import {EmployerRegistrationComponent} from './components/hybrid-overseas/employer-components/employer-registration/employer-registration.component'
+import { PageNotFoundComponent } from './components/common-components/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
   //Common Module Routes
@@ -68,8 +72,14 @@ export const routes: Routes = [
   { path: 'employer/aboutus', component: AboutUsComponent },
   { path: 'employer/faq', component: FaqComponent },
   { path: 'employer/contactus', component: ContactUsComponent },
+  { path: 'employer/postjob', component:PostJobOpeningsComponent},
+  { path: 'employer/viewapplicants', component:ViewApplicantsComponent},
+  { path: 'employer/registration', component:EmployerRegistrationComponent},
 
   //Jobseeker Routes
   { path: 'jobseeker/homepage', component: JobseekerHomepageComponent },
-  { path: 'jobseeker/profile', component: JobseekerProfileComponent}
+  { path: 'jobseeker/profile', component: JobseekerProfileComponent},
+
+  // Wildcard Route for 404 Page
+  { path: '**', component: PageNotFoundComponent },
 ];
