@@ -1,0 +1,102 @@
+<div class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+  <div class="absolute inset-x-0 top-[-10rem] -z-20 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+      aria-hidden="true">
+      <div class="relative left-1/2 -z-20 aspect-1155/678 w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
+          style="
+        clip-path: polygon(
+          74.1% 44.1%,
+          100% 61.6%,
+          97.5% 26.9%,
+          85.5% 0.1%,
+          80.7% 2%,
+          72.5% 32.5%,
+          60.2% 62.4%,
+          52.4% 68.1%,
+          47.5% 58.3%,
+          45.2% 34.5%,
+          27.5% 76.7%,
+          0.1% 64.9%,
+          17.9% 100%,
+          27.6% 76.8%,
+          76.1% 97.7%,
+          74.1% 44.1%
+        );
+      "></div>
+  </div>
+  <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">
+          Post Job Openings
+      </h2>
+      <p class="mt-2 text-lg/8 text-gray-600">
+          description!
+      </p>
+  </div>
+  <form class="max-w-5xl mx-auto bg-transparent p-6 rounded-lg shadow-md space-y-4">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-gray-600">Job Title</label>
+        <input type="text" class="w-full p-2 border rounded-lg" placeholder="Enter job title" required>
+      </div>
+
+      <div>
+        <label class="block text-gray-600">Salary Range</label>
+        <input type="text" class="w-full p-2 border rounded-lg" placeholder="Eg: 50,000 - 70,000" required>
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-gray-600">Job Description</label>
+      <textarea class="w-full p-2 border rounded-lg" rows="4" placeholder="Enter job description" required></textarea>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-gray-600">Location</label>
+        <input type="text" class="w-full p-2 border rounded-lg" placeholder="Enter job location" required>
+      </div>
+
+      <div>
+        <label class="block text-gray-600">Experience Range (Years)</label>
+        <input type="text" class="w-full p-2 border rounded-lg" placeholder="Eg: 2-5 years" required>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-gray-600">Last Date to Apply</label>
+        <input type="date" class="w-full p-2 border rounded-lg" required>
+      </div>
+
+      <div>
+        <label class="block text-gray-600">Number of Openings</label>
+        <input type="number" class="w-full p-2 border rounded-lg" min="1" required>
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-gray-600">Required Skills</label>
+      <input type="text" class="w-full p-2 border rounded-lg" placeholder="Eg: Angular, TypeScript, Tailwind CSS" required>
+    </div>
+
+    <div>
+      <label class="block text-gray-600">Educational Requirement</label>
+      <input type="text" class="w-full p-2 border rounded-lg" placeholder="Eg: Bachelor's in Computer Science" required>
+    </div>
+
+    <div>
+      <label class="block text-gray-600">Job Type</label>
+      <select class="w-full p-2 border rounded-lg" required>
+        <option value="">Select Job Type</option>
+        <option value="full-time">Full-Time</option>
+        <option value="part-time">Part-Time</option>
+        <option value="contract">Contract</option>
+        <option value="internship">Internship</option>
+      </select>
+    </div>
+
+    <button type="submit" class="w-full bg-blue-800 text-white p-3 rounded-lg hover:bg-blue-700">Post Job</button>
+  </form>
+
+
+</div>

@@ -26,7 +26,6 @@ import { AdminViewUpdatesComponent } from './components/admin-components/admin-v
 import { AdminViewCaseStudiesComponent } from './components/admin-components/admin-view-case-studies/admin-view-case-studies.component';
 import { AdminViewAdsComponent } from './components/admin-components/admin-view-ads/admin-view-ads.component';
 import { JobseekerProfileComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-profile/jobseeker-profile.component';
-import { JobseekerAppointmentsComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-appointments/jobseeker-appointments.component';
 
 export const routes: Routes = [
   //Common Module Routes
@@ -69,9 +68,11 @@ export const routes: Routes = [
   { path: 'employer/aboutus', component: AboutUsComponent },
   { path: 'employer/faq', component: FaqComponent },
   { path: 'employer/contactus', component: ContactUsComponent },
+  { path: 'employer/postjob', component:PostJobOpeningsComponent},
+  { path: 'employer/viewapplicants', component:ViewApplicantsComponent},
+  { path: 'employer/registration', component:EmployerRegistrationComponent},
 
   //Jobseeker Routes
   { path: 'jobseeker/homepage', component: JobseekerHomepageComponent },
-  { path: 'jobseeker/profile', component: JobseekerProfileComponent },
-  { path: 'jobseeker/appointments', component: JobseekerAppointmentsComponent },
+  { path: 'jobseeker/profile', component: JobseekerProfileComponent}
 ];
