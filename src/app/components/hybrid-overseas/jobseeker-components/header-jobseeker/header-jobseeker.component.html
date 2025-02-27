@@ -2,10 +2,11 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
 <!-- Navigation Bar -->
-<nav class="bg-blue-800 text-white shadow-lg">
+<nav class="bg-white-800 text-black shadow-lg">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
+          <img class="h-12 w-auto" src="/hybrid1.png" alt="">
           <span class="text-xl font-bold">Hybrid Overseas</span>
         </div>
 
@@ -16,31 +17,27 @@
         
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-8">
-          <a routerLink="/" class="flex items-center space-x-1 hover:text-blue-200">
+          <a href="jobseeker/homepage" class="flex items-center space-x-1 hover:text-blue-200">
             <i class="fas fa-home text-lg"></i>
             <span>Home</span>
           </a>
-          <a routerLink="/jobs" class="flex items-center space-x-1 hover:text-blue-200">
+          <a href="jobseeker/jobfinder" class="flex items-center space-x-1 hover:text-blue-200">
             <i class="fas fa-briefcase text-lg"></i>
             <span>Jobs</span>
           </a>
-          <a routerLink="/appointments" class="flex items-center space-x-1 hover:text-blue-200">
+          <a href="jobseeker/appointments" class="flex items-center space-x-1 hover:text-blue-200">
             <i class="fas fa-calendar text-lg"></i>
             <span>Appointments</span>
           </a>
-          <a routerLink="/settings" class="flex items-center space-x-1 hover:text-blue-200">
-            <i class="fas fa-cog text-lg"></i>
-            <span>Settings</span>
-          </a>
           <div class="flex items-center space-x-4">
             <button class="relative">
-                <i class="fas fa-bell text-gray-500"></i>
+                <i class="fas fa-bell text-white-500"></i>
                 <span class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-4 h-4 text-xs flex items-center justify-center">3</span>
             </button>
             <div class="flex items-center space-x-2">
-                <img src="/api/placeholder/40/40" alt="Profile" class="w-8 h-8 rounded-full">
-                <span class="text-gray-700">John Doe</span>
-            </div>
+              <img src="/api/placeholder/40/40" alt="Profile" class="w-8 h-8 rounded-full">
+              <a href="jobseeker/profile" class="text-white-700">John Doe</a>
+          </div>
         </div>
         </div>
   
