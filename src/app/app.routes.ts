@@ -13,24 +13,25 @@ import { EmployerHomepageComponent } from './components/hybrid-overseas/employer
 import { JobseekerHomepageComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-homepage/jobseeker-homepage.component';
 import { HomepageStudyabroadComponent } from './components/hybrid-studyabroad/homepage-studyabroad/homepage-studyabroad.component';
 import { HomepageOverseasComponent } from './components/hybrid-overseas/homepage-overseas/homepage-overseas.component';
-import {AdminViewEmployersComponent} from './components/admin-components/admin-view-employers/admin-view-employers.component'
-import {AdminViewJobseekersComponent} from './components/admin-components/admin-view-jobseekers/admin-view-jobseekers.component'
-import {AdminViewStudentsComponent} from './components/admin-components/admin-view-students/admin-view-students.component';
-import {AdminGiveUpdatesComponent} from './components/admin-components/admin-give-updates/admin-give-updates.component';
-import {AdminAddCourseComponent} from './components/admin-components/admin-add-course/admin-add-course.component'
+import { AdminViewEmployersComponent } from './components/admin-components/admin-view-employers/admin-view-employers.component';
+import { AdminViewJobseekersComponent } from './components/admin-components/admin-view-jobseekers/admin-view-jobseekers.component';
+import { AdminViewStudentsComponent } from './components/admin-components/admin-view-students/admin-view-students.component';
+import { AdminGiveUpdatesComponent } from './components/admin-components/admin-give-updates/admin-give-updates.component';
+import { AdminAddCourseComponent } from './components/admin-components/admin-add-course/admin-add-course.component';
 import { AdminPostAdsComponent } from './components/admin-components/admin-post-ads/admin-post-ads.component';
 import { AdminPostCaseStudiesComponent } from './components/admin-components/admin-post-case-studies/admin-post-case-studies.component';
 import { AdminChangePasswordComponent } from './components/admin-components/admin-change-password/admin-change-password.component';
 import { AdminViewCoursesComponent } from './components/admin-components/admin-view-courses/admin-view-courses.component';
-import {AdminViewUpdatesComponent} from './components/admin-components/admin-view-updates/admin-view-updates.component';
-import {AdminViewCaseStudiesComponent} from './components/admin-components/admin-view-case-studies/admin-view-case-studies.component';
-import {AdminViewAdsComponent} from './components/admin-components/admin-view-ads/admin-view-ads.component';
+import { AdminViewUpdatesComponent } from './components/admin-components/admin-view-updates/admin-view-updates.component';
+import { AdminViewCaseStudiesComponent } from './components/admin-components/admin-view-case-studies/admin-view-case-studies.component';
+import { AdminViewAdsComponent } from './components/admin-components/admin-view-ads/admin-view-ads.component';
 import { JobseekerProfileComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-profile/jobseeker-profile.component';
-import {PostJobOpeningsComponent} from './components/hybrid-overseas/employer-components/post-job-openings/post-job-openings.component'
-import {ViewApplicantsComponent} from './components/hybrid-overseas/employer-components/view-applicants/view-applicants.component';
-import {EmployerRegistrationComponent} from './components/hybrid-overseas/employer-components/employer-registration/employer-registration.component'
+import { PostJobOpeningsComponent } from './components/hybrid-overseas/employer-components/post-job-openings/post-job-openings.component';
+import { ViewApplicantsComponent } from './components/hybrid-overseas/employer-components/view-applicants/view-applicants.component';
+import { EmployerRegistrationComponent } from './components/hybrid-overseas/employer-components/employer-registration/employer-registration.component';
 import { PageNotFoundComponent } from './components/common-components/page-not-found/page-not-found.component';
 import { JobseekerAppointmentsComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-appointments/jobseeker-appointments.component';
+import { JobseekerJobfinderComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-jobfinder/jobseeker-jobfinder.component';
 
 export const routes: Routes = [
   //Common Module Routes
@@ -54,33 +55,34 @@ export const routes: Routes = [
 
   //Admin Routes
   // { path: 'admin', component: AdminComponent, canActivate: [authGuard] },
-  { path: 'admin', component: AdminComponent},
-  {path: 'admin/viewemployers', component:AdminViewEmployersComponent},
-  {path: 'admin/viewjobseekers', component:AdminViewJobseekersComponent},
-  {path: 'admin/viewstudents', component:AdminViewStudentsComponent},
-  {path: 'admin/giveupdates', component:AdminGiveUpdatesComponent},
-  {path: 'admin/addcourse', component:AdminAddCourseComponent},
-  {path: 'admin/postads', component:AdminPostAdsComponent},
-  {path: 'admin/postcasestudies', component: AdminPostCaseStudiesComponent},
-  {path: 'admin/changepassword', component: AdminChangePasswordComponent},
-  {path: 'admin/viewcourses', component: AdminViewCoursesComponent},
-  {path: 'admin/viewupdates', component: AdminViewUpdatesComponent},
-  {path: 'admin/viewcasestudies', component: AdminViewCaseStudiesComponent},
-  {path: 'admin/viewads', component: AdminViewAdsComponent},
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/viewemployers', component: AdminViewEmployersComponent },
+  { path: 'admin/viewjobseekers', component: AdminViewJobseekersComponent },
+  { path: 'admin/viewstudents', component: AdminViewStudentsComponent },
+  { path: 'admin/giveupdates', component: AdminGiveUpdatesComponent },
+  { path: 'admin/addcourse', component: AdminAddCourseComponent },
+  { path: 'admin/postads', component: AdminPostAdsComponent },
+  { path: 'admin/postcasestudies', component: AdminPostCaseStudiesComponent },
+  { path: 'admin/changepassword', component: AdminChangePasswordComponent },
+  { path: 'admin/viewcourses', component: AdminViewCoursesComponent },
+  { path: 'admin/viewupdates', component: AdminViewUpdatesComponent },
+  { path: 'admin/viewcasestudies', component: AdminViewCaseStudiesComponent },
+  { path: 'admin/viewads', component: AdminViewAdsComponent },
 
   //Employer Routes
   { path: 'employer/homepage', component: EmployerHomepageComponent },
   { path: 'employer/aboutus', component: AboutUsComponent },
   { path: 'employer/faq', component: FaqComponent },
   { path: 'employer/contactus', component: ContactUsComponent },
-  { path: 'employer/postjob', component:PostJobOpeningsComponent},
-  { path: 'employer/viewapplicants', component:ViewApplicantsComponent},
-  { path: 'employer/registration', component:EmployerRegistrationComponent},
+  { path: 'employer/postjob', component: PostJobOpeningsComponent },
+  { path: 'employer/viewapplicants', component: ViewApplicantsComponent },
+  { path: 'employer/registration', component: EmployerRegistrationComponent },
 
   //Jobseeker Routes
   { path: 'jobseeker/homepage', component: JobseekerHomepageComponent },
-  { path: 'jobseeker/profile', component: JobseekerProfileComponent},
+  { path: 'jobseeker/profile', component: JobseekerProfileComponent },
   { path: 'jobseeker/appointments', component: JobseekerAppointmentsComponent },
+  { path: 'jobseeker/jobfinder', component: JobseekerJobfinderComponent },
 
   // Wildcard Route for 404 Page
   { path: '**', component: PageNotFoundComponent },
