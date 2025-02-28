@@ -7,9 +7,64 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%);
+        }
+        
+        .card-gradient {
+            background: linear-gradient(145deg, #1e1e24 0%, #252532 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .card-gradient:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .gradient-btn {
+            background: linear-gradient(45deg, #6b46c1 0%, #9553e0 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-btn:hover {
+            background: linear-gradient(45deg, #7e57d2 0%, #a971e8 100%);
+            box-shadow: 0 5px 15px rgba(107, 70, 193, 0.5);
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/back1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         .hero-text {
@@ -27,116 +82,174 @@
             opacity: 0;
         }
         
-        .hero-section {
-            background-image: url('/back1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        .feature-item {
+            animation: slideIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .feature-item:nth-child(1) { animation-delay: 0.1s; }
+        .feature-item:nth-child(2) { animation-delay: 0.3s; }
+        .feature-item:nth-child(3) { animation-delay: 0.5s; }
+        .feature-item:nth-child(4) { animation-delay: 0.7s; }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        .flowing-gradient {
+            background: linear-gradient(45deg, #6b46c1, #9553e0, #6b46c1, #9553e0);
+            background-size: 300% 300%;
+            animation: gradientFlow 15s ease infinite;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 25%;
+            background: linear-gradient(45deg, #6b46c1, #9553e0);
+            border-radius: 2px;
+        }
+
+        .glow {
+            text-shadow: 0 0 10px rgba(147, 51, 234, 0.7);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #6b46c1, #9553e0);
+            border-radius: 5px;
+        }
+        
+        input, select {
+            background-color: #1e1e24;
+            color: #e0e0e0;
+            border-color: #383846;
+        }
+        
+        input::placeholder {
+            color: #8e8e8e;
         }
     </style>
 </head>
-<body class="bg-gray-50">
-
+<body>
     <!-- Hero Section -->
     <div class="hero-section text-white pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="hero-text text-4xl md:text-6xl font-bold mb-6">Embark on Your Global Education Journey</h1>
+            <h1 class="hero-text text-4xl md:text-6xl font-bold mb-6 glow">Embark on Your Global Education Journey</h1>
             <p class="hero-subtitle text-xl mb-8">Discover universities worldwide, explore courses, and turn your study abroad dreams into reality</p>
-            <button class="hero-button bg-white text-purple-600 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 font-bold">
+            <button class="hero-button gradient-btn px-8 py-3 rounded-full font-bold text-white">
                 Start Your Journey
             </button>
         </div>
         <div class="mb-12"></div>
         <div class="grid md:grid-cols-4 gap-8">
-            <div class="text-center">
+            <div class="feature-item text-center">
                 <div class="mb-4">
-                    <i class="fas fa-university text-4xl text-purple-600"></i>
+                    <i class="fas fa-university text-4xl text-purple-400"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-2">Top Universities</h3>
-                <p class="text-gray-600">Access to world-renowned institutions</p>
+                <p class="text-gray-400">Access to world-renowned institutions</p>
             </div>
-            <div class="text-center">
+            <div class="feature-item text-center">
                 <div class="mb-4">
-                    <i class="fas fa-hands-helping text-4xl text-purple-600"></i>
+                    <i class="fas fa-hands-helping text-4xl text-purple-400"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-2">Expert Guidance</h3>
-                <p class="text-gray-600">Personalized counseling and support</p>
+                <p class="text-gray-400">Personalized counseling and support</p>
             </div>
-            <div class="text-center">
+            <div class="feature-item text-center">
                 <div class="mb-4">
-                    <i class="fas fa-graduation-cap text-4xl text-purple-600"></i>
+                    <i class="fas fa-graduation-cap text-4xl text-purple-400"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-2">Diverse Courses</h3>
-                <p class="text-gray-600">Wide range of programs to choose from</p>
+                <p class="text-gray-400">Wide range of programs to choose from</p>
             </div>
-            <div class="text-center">
+            <div class="feature-item text-center">
                 <div class="mb-4">
-                    <i class="fas fa-dollar-sign text-4xl text-purple-600"></i>
+                    <i class="fas fa-dollar-sign text-4xl text-purple-400"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-2">Scholarship Support</h3>
-                <p class="text-gray-600">Help finding financial aid options</p>
+                <p class="text-gray-400">Help finding financial aid options</p>
             </div>
         </div>
     </div>
 
     <!-- Featured Universities Section -->
-    <div class="max-w-7xl mx-auto px-4 py-16">
-        <h2 class="text-3xl font-bold text-center mb-12">Top Universities</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="/api/placeholder/400/250" alt="University 1" class="w-full h-48 object-cover"/>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">University of Oxford</h3>
-                    <p class="text-gray-600 mb-4">United Kingdom</p>
-                    <a href="#" class="text-purple-600 hover:text-purple-700">Explore Programs →</a>
+    <div class="gradient-bg py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white section-title">Top Universities</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-gradient rounded-lg shadow-xl overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="University 1" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-purple-300">University of Oxford</h3>
+                        <p class="text-gray-400 mb-4">United Kingdom</p>
+                        <a href="#" class="text-purple-400 hover:text-purple-300">Explore Programs →</a>
+                    </div>
                 </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="/api/placeholder/400/250" alt="University 2" class="w-full h-48 object-cover"/>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Harvard University</h3>
-                    <p class="text-gray-600 mb-4">United States</p>
-                    <a href="#" class="text-purple-600 hover:text-purple-700">Explore Programs →</a>
+                <div class="card-gradient rounded-lg shadow-xl overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="University 2" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-purple-300">Harvard University</h3>
+                        <p class="text-gray-400 mb-4">United States</p>
+                        <a href="#" class="text-purple-400 hover:text-purple-300">Explore Programs →</a>
+                    </div>
                 </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="/api/placeholder/400/250" alt="University 3" class="w-full h-48 object-cover"/>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">University of Tokyo</h3>
-                    <p class="text-gray-600 mb-4">Japan</p>
-                    <a href="#" class="text-purple-600 hover:text-purple-700">Explore Programs →</a>
+                <div class="card-gradient rounded-lg shadow-xl overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="University 3" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-purple-300">University of Tokyo</h3>
+                        <p class="text-gray-400 mb-4">Japan</p>
+                        <a href="#" class="text-purple-400 hover:text-purple-300">Explore Programs →</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Latest Blogs Section -->
-    <div class="bg-gray-100 py-16">
+    <div class="bg-gray-900 py-16">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Latest Updates & Blogs</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 text-white section-title">Latest Updates & Blogs</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="card-gradient rounded-lg shadow-xl overflow-hidden">
                     <img src="/api/placeholder/400/250" alt="Blog 1" class="w-full h-48 object-cover"/>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">2025 Admission Trends</h3>
-                        <p class="text-gray-600 mb-4">Latest insights on international admission trends and requirements.</p>
-                        <a href="#" class="text-purple-600 hover:text-purple-700">Read More →</a>
+                        <h3 class="text-xl font-bold mb-2 text-purple-300">2025 Admission Trends</h3>
+                        <p class="text-gray-400 mb-4">Latest insights on international admission trends and requirements.</p>
+                        <a href="#" class="text-purple-400 hover:text-purple-300">Read More →</a>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="card-gradient rounded-lg shadow-xl overflow-hidden">
                     <img src="/api/placeholder/400/250" alt="Blog 2" class="w-full h-48 object-cover"/>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Scholarship Guide</h3>
-                        <p class="text-gray-600 mb-4">Comprehensive guide to securing international scholarships.</p>
-                        <a href="#" class="text-purple-600 hover:text-purple-700">Read More →</a>
+                        <h3 class="text-xl font-bold mb-2 text-purple-300">Scholarship Guide</h3>
+                        <p class="text-gray-400 mb-4">Comprehensive guide to securing international scholarships.</p>
+                        <a href="#" class="text-purple-400 hover:text-purple-300">Read More →</a>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="card-gradient rounded-lg shadow-xl overflow-hidden">
                     <img src="/api/placeholder/400/250" alt="Blog 3" class="w-full h-48 object-cover"/>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Student Life Abroad</h3>
-                        <p class="text-gray-600 mb-4">Real experiences from international students worldwide.</p>
-                        <a href="#" class="text-purple-600 hover:text-purple-700">Read More →</a>
+                        <h3 class="text-xl font-bold mb-2 text-purple-300">Student Life Abroad</h3>
+                        <p class="text-gray-400 mb-4">Real experiences from international students worldwide.</p>
+                        <a href="#" class="text-purple-400 hover:text-purple-300">Read More →</a>
                     </div>
                 </div>
             </div>
@@ -144,66 +257,105 @@
     </div>
 
     <!-- Course Search Section -->
-    <div class="max-w-7xl mx-auto px-4 py-16">
-        <div class="bg-white rounded-lg shadow-lg p-8">
-            <h2 class="text-3xl font-bold text-center mb-8">Find Your Perfect Course</h2>
-            <div class="grid md:grid-cols-4 gap-4">
-                <input type="text" placeholder="Course Name" class="p-3 border rounded-lg"/>
-                <select class="p-3 border rounded-lg">
-                    <option>Select Country</option>
-                    <option>USA</option>
-                    <option>UK</option>
-                    <option>Canada</option>
-                    <option>Australia</option>
-                </select>
-                <select class="p-3 border rounded-lg">
-                    <option>Select Level</option>
-                    <option>Bachelor's</option>
-                    <option>Master's</option>
-                    <option>PhD</option>
-                </select>
-                <button class="bg-purple-600 text-white p-3 rounded-lg hover:bg-purple-700 transition duration-300">
-                    Search Courses
-                </button>
+    <div class="gradient-bg py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="card-gradient rounded-lg shadow-xl p-8">
+                <h2 class="text-3xl font-bold text-center mb-8 text-white section-title">Find Your Perfect Course</h2>
+                <div class="grid md:grid-cols-4 gap-4 mt-12">
+                    <input type="text" placeholder="Course Name" class="p-3 border rounded-lg"/>
+                    <select class="p-3 border rounded-lg">
+                        <option>Select Country</option>
+                        <option>USA</option>
+                        <option>UK</option>
+                        <option>Canada</option>
+                        <option>Australia</option>
+                    </select>
+                    <select class="p-3 border rounded-lg">
+                        <option>Select Level</option>
+                        <option>Bachelor's</option>
+                        <option>Master's</option>
+                        <option>PhD</option>
+                    </select>
+                    <button class="gradient-btn text-white p-3 rounded-lg transition duration-300 pulse-animation">
+                        Search Courses
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Why Choose Us Section -->
-    <div class="bg-purple-50 py-16">
+    <div class="flowing-gradient py-16">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Hybrid Study Abroad</h2>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="text-center">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white section-title">Why Choose Hybrid Study Abroad</h2>
+            <div class="grid md:grid-cols-4 gap-8 mt-12">
+                <div class="feature-item text-center bg-black bg-opacity-30 p-6 rounded-lg">
                     <div class="mb-4">
-                        <i class="fas fa-university text-4xl text-purple-600"></i>
+                        <i class="fas fa-university text-4xl text-purple-300"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Top Universities</h3>
-                    <p class="text-gray-600">Access to world-renowned institutions</p>
+                    <h3 class="text-xl font-bold mb-2 text-white">Top Universities</h3>
+                    <p class="text-gray-300">Access to world-renowned institutions</p>
                 </div>
-                <div class="text-center">
+                <div class="feature-item text-center bg-black bg-opacity-30 p-6 rounded-lg">
                     <div class="mb-4">
-                        <i class="fas fa-hands-helping text-4xl text-purple-600"></i>
+                        <i class="fas fa-hands-helping text-4xl text-purple-300"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Expert Guidance</h3>
-                    <p class="text-gray-600">Personalized counseling and support</p>
+                    <h3 class="text-xl font-bold mb-2 text-white">Expert Guidance</h3>
+                    <p class="text-gray-300">Personalized counseling and support</p>
                 </div>
-                <div class="text-center">
+                <div class="feature-item text-center bg-black bg-opacity-30 p-6 rounded-lg">
                     <div class="mb-4">
-                        <i class="fas fa-graduation-cap text-4xl text-purple-600"></i>
+                        <i class="fas fa-graduation-cap text-4xl text-purple-300"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Diverse Courses</h3>
-                    <p class="text-gray-600">Wide range of programs to choose from</p>
+                    <h3 class="text-xl font-bold mb-2 text-white">Diverse Courses</h3>
+                    <p class="text-gray-300">Wide range of programs to choose from</p>
                 </div>
-                <div class="text-center">
+                <div class="feature-item text-center bg-black bg-opacity-30 p-6 rounded-lg">
                     <div class="mb-4">
-                        <i class="fas fa-dollar-sign text-4xl text-purple-600"></i>
+                        <i class="fas fa-dollar-sign text-4xl text-purple-300"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Scholarship Support</h3>
-                    <p class="text-gray-600">Help finding financial aid options</p>
+                    <h3 class="text-xl font-bold mb-2 text-white">Scholarship Support</h3>
+                    <p class="text-gray-300">Help finding financial aid options</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Footer with animated particles -->
+    <div class="bg-gray-900 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-6 text-purple-300">Hybrid Study Abroad</h3>
+            <p class="text-gray-400 mb-8">Transforming education journeys since 2020</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-purple-400 hover:text-purple-300 text-2xl"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-purple-400 hover:text-purple-300 text-2xl"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-purple-400 hover:text-purple-300 text-2xl"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-purple-400 hover:text-purple-300 text-2xl"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="text-gray-500">© 2025 Hybrid Study Abroad. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Intersection Observer for animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card-gradient');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(30px)";
+                card.style.transition = "all 0.6s ease-out";
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
 </html>
