@@ -40,8 +40,8 @@ export class JobseekerHomepageComponent implements OnInit {
   statistics = [
     { value: '15K+', label: 'Available Jobs', colorClass: 'border-indigo-500', textClass: 'text-indigo-600' },
     { value: '120+', label: 'Countries', colorClass: 'border-pink-500', textClass: 'text-pink-600' },
-    { value: '5.2K+', label: 'Companies', colorClass: 'border-amber-500', textClass: 'text-amber-600' },
-    { value: '750K+', label: 'Job Seekers', colorClass: 'border-emerald-500', textClass: 'text-emerald-600' }
+    { value: '5.2K+', label: 'Companies', colorClass: 'border-yellow-500', textClass: 'text-amber-600' },
+    { value: '750K+', label: 'Job Seekers', colorClass: 'border-green-500', textClass: 'text-emerald-600' }
   ];
 
   // Featured jobs data
@@ -123,7 +123,7 @@ export class JobseekerHomepageComponent implements OnInit {
   // Popular destinations data
   popularDestinations = [
     { name: 'United States', jobCount: '4,526 jobs', image: 'assets/images/countries/usa.jpg' },
-    { name: 'United Kingdom', jobCount: '3,845 jobs', image: 'assets/images/countries/uk.jpg' },
+    { name: 'UK', jobCount: '3,845 jobs', image: 'assets/images/countries/uk.jpg' },
     { name: 'Singapore', jobCount: '2,390 jobs', image: 'assets/images/countries/singapore.jpg' },
     { name: 'Australia', jobCount: '2,175 jobs', image: 'assets/images/countries/australia.jpg' },
     { name: 'Germany', jobCount: '1,965 jobs', image: 'assets/images/countries/germany.jpg' },
@@ -166,7 +166,7 @@ export class JobseekerHomepageComponent implements OnInit {
       title: 'Verified Employers',
       description: 'All companies are vetted to ensure legitimate job opportunities and fair practices.',
       iconClass: 'fas fa-shield-alt text-white',
-      bgClass: 'bg-gradient-to-br from-amber-500 to-amber-600'
+      bgClass: 'bg-gradient-to-br from-yellow-500 to-yellow-600'
     },
     {
       title: 'Career Coaching',
