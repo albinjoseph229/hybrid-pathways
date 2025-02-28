@@ -165,14 +165,51 @@
 
 
     <div class="grid lg:grid-cols-2 gap-4 sm:gap-6">
-      <!-- Income Card -->
+      <!-- Users Card (Employers and Job Seekers) -->
+      <div class="p-4 md:p-5 min-h-[410px] flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+        <!-- Header -->
+        <div class="flex justify-between">
+          <div class="flex gap-4">
+            <div>
+              <h2 class="text-sm text-gray-500 dark:text-neutral-500">Employers</h2>
+              <p class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
+                {{totalEmployers}}
+              </p>
+            </div>
+            <div>
+              <h2 class="text-sm text-gray-500 dark:text-neutral-500">Job Seekers</h2>
+              <p class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
+                {{totalJobSeekers}}
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <span class="py-[5px] px-1.5 inline-flex items-center gap-x-1 text-xs font-medium rounded-md bg-teal-100 text-teal-800 dark:bg-teal-500/10 dark:text-teal-500">
+              <svg class="inline-block size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14" />
+                <path d="m19 12-7 7-7-7" />
+              </svg>
+              15%
+            </span>
+          </div>
+        </div>
+        <!-- End Header -->
+
+        <div id="hs-multiple-bar-charts" class="flex-1">
+          <p-chart type="bar" [data]="usersData" [options]="usersOptions" height="100%"></p-chart>
+        </div>
+      </div>
+      <!-- End Card -->
+
+      <!-- Students Card (replacing Visitors) -->
       <div class="p-4 md:p-5 min-h-[410px] flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
         <!-- Header -->
         <div class="flex justify-between items-center">
           <div>
-            <h2 class="text-sm text-gray-500 dark:text-neutral-500">Income</h2>
+            <h2 class="text-sm text-gray-500 dark:text-neutral-500">Students</h2>
             <p class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
-              $126,238.49
+              {{totalStudents}}
             </p>
           </div>
 
@@ -182,43 +219,14 @@
                 <path d="M12 5v14" />
                 <path d="m19 12-7 7-7-7" />
               </svg>
-              25%
-            </span>
-          </div>
-        </div>
-        <!-- End Header -->
-
-        <div id="hs-multiple-bar-charts" class="flex-1">
-          <p-chart type="bar" [data]="incomeData" [options]="incomeOptions" height="100%"></p-chart>
-        </div>
-      </div>
-      <!-- End Card -->
-
-      <!-- Visitors Card -->
-      <div class="p-4 md:p-5 min-h-[410px] flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
-        <!-- Header -->
-        <div class="flex justify-between items-center">
-          <div>
-            <h2 class="text-sm text-gray-500 dark:text-neutral-500">Visitors</h2>
-            <p class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
-              80.3k
-            </p>
-          </div>
-
-          <div>
-            <span class="py-[5px] px-1.5 inline-flex items-center gap-x-1 text-xs font-medium rounded-md bg-red-100 text-red-800 dark:bg-red-500/10 dark:text-red-500">
-              <svg class="inline-block size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 5v14" />
-                <path d="m19 12-7 7-7-7" />
-              </svg>
-              2%
+              7%
             </span>
           </div>
         </div>
         <!-- End Header -->
 
         <div id="hs-single-area-chart" class="flex-1">
-          <p-chart type="line" [data]="visitorsData" [options]="visitorsOptions" height="100%"></p-chart>
+          <p-chart type="line" [data]="studentsData" [options]="studentsOptions" height="100%"></p-chart>
         </div>
       </div>
       <!-- End Card -->
