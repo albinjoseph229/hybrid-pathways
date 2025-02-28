@@ -1,152 +1,279 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<!-- Hero Section -->
+<section class="pt-24 pb-12 bg-gradient-to-br from-indigo-700 via-purple-600 to-pink-500 text-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-pattern opacity-10"></div>
+  <div class="absolute -bottom-8 -left-24 w-64 h-64 bg-yellow-300 rounded-full filter blur-3xl opacity-20"></div>
+  <div class="absolute -top-16 -right-16 w-72 h-72 bg-blue-400 rounded-full filter blur-3xl opacity-20"></div>
   
-  <!-- Main Content -->
-  <div class="max-w-7xl mx-auto px-4 py-6">
-    <!-- User Profile Section -->
-    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-      <div class="flex justify-between items-start mb-4">
-        <h2 class="text-2xl font-bold text-gray-800">User Profile</h2>
-        <button class="flex items-center text-blue-600 hover:text-blue-800">
-          <i class="fas fa-edit mr-1"></i>
-          Edit Profile
-        </button>
-      </div>
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="flex items-center space-x-3">
-          <i class="fas fa-user text-gray-500"></i>
-          <div>
-            <p class="text-sm text-gray-500">Name</p>
-            <p class="font-medium">John Doe</p>
-          </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="lg:flex items-center">
+      <div class="lg:w-1/2 py-8">
+        <div class="inline-block px-3 py-1 bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm rounded-full text-sm font-medium mb-4">
+          Explore opportunities in {{countries.length}}+ countries
         </div>
-        <div class="flex items-center space-x-3">
-          <i class="fas fa-phone text-gray-500"></i>
-          <div>
-            <p class="text-sm text-gray-500">Phone</p>
-            <p class="font-medium">+1 234 567 8900</p>
-          </div>
-        </div>
-        <div class="flex items-center space-x-3">
-          <i class="fas fa-envelope text-gray-500"></i>
-          <div>
-            <p class="text-sm text-gray-500">Email</p>
-            <p class="font-medium">john.doeexample.com</p>
-          </div>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+          Find Your Dream Job <span class="text-yellow-300">Overseas</span>
+        </h1>
+        <p class="mt-4 text-xl md:text-2xl text-blue-100">
+          Connect with top employers around the world and take your career international.
+        </p>
+        <div class="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+          <a href="jobseeker/jobfinder" class="px-6 py-3 bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-800 font-medium rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition duration-300 text-center">
+            <i class="fas fa-search mr-2"></i> Find Jobs
+          </a>
+          <a href="jobseeker/appointments" class="px-6 py-3 backdrop-filter backdrop-blur-sm bg-white bg-opacity-10 border border-white border-opacity-30 text-white font-medium rounded-lg hover:bg-opacity-20 transform hover:-translate-y-1 transition duration-300 text-center">
+            <i class="fas fa-building mr-2"></i> Appointments
+          </a>
         </div>
       </div>
-    </div>
-
-    <!-- Job Search Section -->
-    <div class="bg-white rounded-lg shadow mb-6">
-        <div class="p-6">
-            <h2 class="text-xl font-bold mb-4">Search Jobs</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <input type="text" placeholder="Job Title or Keywords" class="p-2 border rounded">
-                <select class="p-2 border rounded">
-                    <option>Select Country</option>
-                    <option>USA</option>
-                    <option>UK</option>
-                    <option>Canada</option>
-                    <option>Australia</option>
-                </select>
-                <select class="p-2 border rounded">
-                    <option>Job Type</option>
-                    <option>Full Time</option>
-                    <option>Part Time</option>
-                    <option>Contract</option>
-                </select>
-                <button class="bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
-                    Search Jobs
-                </button>
-            </div>
-        </div>
-    </div>
-  
-    <!-- Recent Job Applications -->
-    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="text-2xl font-bold text-gray-800">Recent Applications</h2>
-        <a routerLink="/jobs" class="text-blue-600 hover:text-blue-800 flex items-center">
-          View All
-          <i class="fas fa-chevron-right ml-1"></i>
-        </a>
-      </div>
-      <div class="overflow-x-auto">
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead>
-            <tr>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Job Title</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Company</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Location</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr>
-              <td class="px-6 py-4">Senior Software Engineer</td>
-              <td class="px-6 py-4">Tech Corp</td>
-              <td class="px-6 py-4">USA</td>
-              <td class="px-6 py-4">
-                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Under Review</span>
-              </td>
-              <td class="px-6 py-4">Feb 15, 2025</td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4">Project Manager</td>
-              <td class="px-6 py-4">Global Solutions</td>
-              <td class="px-6 py-4">Canada</td>
-              <td class="px-6 py-4">
-                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">Interview Scheduled</span>
-              </td>
-              <td class="px-6 py-4">Feb 10, 2025</td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4">Frontend Developer</td>
-              <td class="px-6 py-4">Digital Innovations</td>
-              <td class="px-6 py-4">UK</td>
-              <td class="px-6 py-4">
-                <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Application Submitted</span>
-              </td>
-              <td class="px-6 py-4">Feb 08, 2025</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  
-    <!-- Upcoming Appointments -->
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="text-2xl font-bold text-gray-800">Upcoming Appointments</h2>
-        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-            New Appointment
-        </button>
-      </div>
-      <div class="grid md:grid-cols-2 gap-4">
-        <div class="border rounded-lg p-4">
-          <div class="flex items-center justify-between">
+      <div class="lg:w-1/2 mt-8 lg:mt-0">
+        <div class="bg-white rounded-2xl shadow-xl p-6 transform rotate-1 hover:rotate-0 transition duration-300">
+          <h2 class="text-gray-800 text-xl font-semibold mb-4">Quick Job Search</h2>
+          <div class="space-y-4">
             <div>
-              <h3 class="font-bold">Career Consultation</h3>
-              <p class="text-sm text-gray-500">Feb 20, 2025 - 10:00 AM</p>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                  <i class="fas fa-search"></i>
+                </span>
+                <input type="text" placeholder="Job title, keywords, or company" class="w-full pl-10 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition">
+              </div>
             </div>
-            <button class="text-gray-400 hover:text-gray-600">
-              <i class="fas fa-ellipsis-v"></i>
-            </button>
-          </div>
-        </div>
-        <div class="border rounded-lg p-4">
-          <div class="flex items-center justify-between">
             <div>
-              <h3 class="font-bold">Visa Consultation</h3>
-              <p class="text-sm text-gray-500">Feb 22, 2025 - 2:00 PM</p>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                  <i class="fas fa-globe-americas"></i>
+                </span>
+                <select class="w-full pl-10 px-4 py-3 bg-gray-50 border text-gray-400 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 appearance-none transition">
+                  <option value="">Select Country</option>
+                  <option *ngFor="let country of countries" [value]="country.value">{{country.name}}</option>
+                </select>
+              </div>
             </div>
-            <button class="text-gray-400 hover:text-gray-600">
-              <i class="fas fa-ellipsis-v"></i>
+            <div>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                  <i class="fas fa-briefcase"></i>
+                </span>
+                <select class="w-full pl-10 px-4 py-3 bg-gray-50 border text-gray-400 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 appearance-none transition">
+                  <option value="">Select Industry</option>
+                  <option *ngFor="let industry of industries" [value]="industry.value">{{industry.name}}</option>
+                </select>
+              </div>
+            </div>
+            <button class="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition duration-300 flex items-center justify-center">
+              <i class="fas fa-search mr-2"></i> Search Jobs
             </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+  
+  <div class="absolute bottom-0 left-0 right-0">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+      <path fill="#f9fafb" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,100L1360,100C1280,100,1120,100,960,100C800,100,640,100,480,100C320,100,160,100,80,100L0,100Z"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Statistics -->
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div *ngFor="let stat of statistics" 
+           class="bg-white p-6 rounded-xl shadow-md border-t-4 hover:shadow-xl transition-shadow duration-300"
+           [ngClass]="stat.colorClass">
+        <div class="text-4xl font-bold" [ngClass]="stat.textClass">{{ stat.value }}</div>
+        <div class="mt-2 text-gray-600">{{ stat.label }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Jobs -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Curated Opportunities</span>
+      <h2 class="text-3xl font-bold text-gray-900 mt-2">Featured Overseas Jobs</h2>
+      <p class="mt-4 text-xl text-gray-600">Handpicked opportunities for global careers</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Job Cards -->
+      <div *ngFor="let job of featuredJobs" 
+           class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition duration-300 group">
+        <div class="p-6">
+          <div class="flex justify-between items-start">
+            <div>
+              <span [ngClass]="job.tagClass">{{ job.tagText }}</span>
+              <h3 class="mt-2 text-xl font-semibold group-hover:text-indigo-600 transition">{{ job.title }}</h3>
+              <p class="text-gray-600">{{ job.company }}</p>
+            </div>
+            <img [src]="job.logo" alt="Company logo" class="w-12 h-12 rounded-full object-cover shadow-md" />
+          </div>
+          
+          <div class="mt-4 space-y-2">
+            <div class="flex items-center text-gray-500">
+              <i class="fas fa-map-marker-alt mr-2 text-pink-500"></i>
+              <span>{{ job.location }}</span>
+            </div>
+            <div class="flex items-center text-gray-500">
+              <i class="fas fa-dollar-sign mr-2 text-green-500"></i>
+              <span>{{ job.salary }}</span>
+            </div>
+            <div class="flex items-center text-gray-500">
+              <i class="fas fa-briefcase mr-2 text-blue-500"></i>
+              <span>{{ job.type }}</span>
+            </div>
+          </div>
+          
+          <div class="mt-6 flex items-center justify-between">
+            <div class="flex flex-wrap gap-2">
+              <span *ngFor="let skill of job.skills" class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">{{ skill }}</span>
+            </div>
+            <span class="text-sm text-gray-500">{{ job.postedTime }}</span>
+          </div>
+          
+          <div class="mt-6">
+            <a href="#" class="inline-block w-full py-2 text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition duration-300">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-12 text-center">
+      <a href="jobseeker/jobfinder" class="px-6 py-3 bg-white border border-indigo-600 text-indigo-600 font-medium rounded-lg hover:bg-indigo-50 transition duration-300 inline-flex items-center">
+        Browse All Jobs
+        <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Popular Destinations -->
+<section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Global Opportunities</span>
+      <h2 class="text-3xl font-bold text-gray-900 mt-2">Popular Destinations</h2>
+      <p class="mt-4 text-xl text-gray-600">Explore career opportunities in top countries</p>
+    </div>
+    
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+      <!-- Country Cards -->
+      <div *ngFor="let country of popularDestinations" 
+           class="group">
+        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 relative">
+          <div class="h-40 w-full overflow-hidden">
+            <img [src]="country.image" [alt]="country.name" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-60"></div>
+          </div>
+          <div class="p-4 text-center relative -mt-16">
+            <div class="bg-white rounded-lg shadow-lg p-3 transform group-hover:-translate-y-1 transition duration-300">
+              <h3 class="font-semibold text-lg">{{ country.name }}</h3>
+              <p class="text-sm text-gray-500 mt-1">{{ country.jobCount }}</p>
+              <div class="mt-2 w-8 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Our Advantages</span>
+      <h2 class="text-3xl font-bold text-gray-900 mt-2">Why Choose Hybrid Overseas Careers</h2>
+      <p class="mt-4 text-xl text-gray-600">Features that make your job search easier</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Features -->
+      <div *ngFor="let feature of features" 
+           class="p-6 border border-gray-200 rounded-xl hover:border-indigo-300 hover:shadow-lg transition duration-300">
+        <div [ngClass]="feature.bgClass" class="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transform -rotate-6 group-hover:rotate-0 transition duration-300">
+          <i [ngClass]="['text-2xl', feature.iconClass]"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">{{ feature.title }}</h3>
+        <p class="text-gray-600">{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-16 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-full bg-pattern opacity-5"></div>
+  <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-indigo-300 rounded-full filter blur-3xl opacity-20"></div>
+  <div class="absolute -top-24 -left-24 w-96 h-96 bg-purple-300 rounded-full filter blur-3xl opacity-20"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-12">
+      <span class="inline-block px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-medium">Testimonials</span>
+      <h2 class="text-3xl font-bold text-gray-900 mt-2">Success Stories</h2>
+      <p class="mt-4 text-xl text-gray-600">Hear from people who found their dream jobs abroad</p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Testimonials -->
+      <div *ngFor="let testimonial of testimonials; let i = index" 
+           class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 relative">
+        <div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2">
+          <div [ngClass]="['w-12 h-12 flex items-center justify-center text-white text-xl rounded-full', testimonial.accentClass]">
+            <i class="fas fa-quote-right"></i>
+          </div>
+        </div>
+        <div class="flex items-center mb-6">
+          <img [src]="testimonial.avatar" alt="User avatar" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-indigo-100 shadow" />
+          <div>
+            <h4 class="font-semibold">{{ testimonial.name }}</h4>
+            <p class="text-sm text-gray-500">{{ testimonial.position }}</p>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="flex text-yellow-400">
+            <i *ngFor="let star of [1,2,3,4,5]" 
+               [ngClass]="['fas', star <= testimonial.rating ? 'fa-star' : (star - 0.5 === testimonial.rating ? 'fa-star-half-alt' : 'fa-star text-gray-300')]"></i>
+          </div>
+        </div>
+        <p class="text-gray-600">
+          "{{ testimonial.quote }}"
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-20 bg-gradient-to-br from-indigo-700 via-purple-600 to-pink-500 text-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-pattern opacity-10"></div>
+  <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-yellow-300 rounded-full filter blur-3xl opacity-20"></div>
+  <div class="absolute -top-24 -right-24 w-72 h-72 bg-blue-400 rounded-full filter blur-3xl opacity-20"></div>
+  
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <span class="inline-block px-3 py-1 bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm rounded-full text-sm font-medium mb-4">
+      Join {{ totalUsers.toLocaleString() }}+ Professionals Worldwide
+    </span>
+    <h2 class="text-3xl font-bold">Ready to Start Your International Career?</h2>
+    <p class="mt-4 text-xl text-blue-100">
+      Join thousands of professionals who have found their dream jobs abroad
+    </p>
+    <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <a href="#" class="px-8 py-3 bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-800 font-medium rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition duration-300 text-center inline-flex items-center justify-center">
+        <i class="fas fa-user-plus mr-2"></i> Create Free Account
+      </a>
+      <a href="jobseeker/jobfinder" class="px-8 py-3 backdrop-filter backdrop-blur-sm bg-white bg-opacity-10 border border-white border-opacity-30 text-white font-medium rounded-lg hover:bg-opacity-20 transform hover:-translate-y-1 transition duration-300 text-center inline-flex items-center justify-center">
+        <i class="fas fa-search mr-2"></i> Browse Jobs
+      </a>
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 left-0 right-0 transform rotate-180">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+      <path fill="#ffffff" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,100L1360,100C1280,100,1120,100,960,100C800,100,640,100,480,100C320,100,160,100,80,100L0,100Z"></path>
+    </svg>
+  </div>
+</section>
