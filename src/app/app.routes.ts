@@ -33,6 +33,8 @@ import { PageNotFoundComponent } from './components/common-components/page-not-f
 import { JobseekerAppointmentsComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-appointments/jobseeker-appointments.component';
 import { JobseekerJobfinderComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-jobfinder/jobseeker-jobfinder.component';
 import { CaseStudiesComponent } from './components/hybrid-overseas/employer-components/case-studies/case-studies.component';
+import {EmployerUpdatesComponent} from './components/hybrid-overseas/employer-components/employer-updates/employer-updates.component'
+
 
 export const routes: Routes = [
   //Common Module Routes
@@ -79,6 +81,7 @@ export const routes: Routes = [
   { path: 'employer/viewapplicants', component: ViewApplicantsComponent },
   { path: 'employer/registration', component: EmployerRegistrationComponent },
   { path: 'employer/viewcasestudies', component: CaseStudiesComponent},
+  { path: 'employer/viewupdates', component: EmployerUpdatesComponent},
 
   //Jobseeker Routes
   { path: 'jobseeker/homepage', component: JobseekerHomepageComponent },
