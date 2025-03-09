@@ -78,11 +78,11 @@
     }
 
     @keyframes slideUp {
-      from { 
+      from {
         opacity: 0;
         transform: translateY(20px);
       }
-      to { 
+      to {
         opacity: 1;
         transform: translateY(0);
       }
@@ -108,7 +108,7 @@
   <div class="gradient-bg min-h-screen text-gray-900">
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Hero Section -->
-      <div class="py-16 md:py-24 flex flex-col items-center">
+      <div class="pt-32 md:pt-48 py-16 md:py-24 flex flex-col items-center">
         <div class="text-center max-w-4xl mx-auto">
           <h1 class="title-gradient text-5xl md:text-7xl lg:text-8xl mb-6 animate-slide-up">
             HYBRID PATHWAYS
@@ -117,7 +117,7 @@
             "Empowering careers with the right path, the right skills, and the right opportunities" made simple...
           </p>
         </div>
-        
+
         <div class="flex flex-col sm:flex-row gap-4 mt-12 animate-slide-up-delay-2">
           <a href="studyabroad/homepage" class="btn-gradient px-8 py-4 rounded-xl text-white text-center shadow-lg">
             Hybrid Study Abroad
@@ -160,7 +160,7 @@
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    
+
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
@@ -174,7 +174,7 @@
           }
         });
       }, { threshold: 0.1 });
-      
+
       document.querySelectorAll('.animate-fade-in, .animate-fade-in-delay-1, .animate-fade-in-delay-2, .animate-slide-up, .animate-slide-up-delay-1, .animate-slide-up-delay-2').forEach(el => {
         el.style.animationPlayState = 'paused';
         observer.observe(el);
