@@ -34,12 +34,13 @@
 <style>
 /* Adding glass morphism effect and additional styling */
 nav {
-    background-color: rgba(26, 15, 46, 0.7);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(26, 15, 46, 0); /* Fully transparent */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* Lighter shadow */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     transition: all 0.3s ease;
 }
+
 
 nav.scrolled {
     background-color: rgba(26, 15, 46, 0.9);
