@@ -96,20 +96,9 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) {
 
 /* Support for dark mode if enabled at system level */
 @media (prefers-color-scheme: dark) {
+  /* Background colors */
   .bg-white {
     background-color: #1f2937;
-  }
-
-  .text-gray-800 {
-    color: #e5e7eb;
-  }
-
-  .text-gray-600 {
-    color: #d1d5db;
-  }
-
-  .border-gray-100, .border-gray-200 {
-    border-color: #374151;
   }
 
   .bg-gray-50 {
@@ -118,5 +107,116 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) {
 
   .bg-gray-200 {
     background-color: #374151;
+  }
+
+  /* Text colors */
+  .text-gray-800 {
+    color: #94a4c4;
+  }
+
+  .text-gray-600 {
+    color: #a5c9ff;
+  }
+
+  .text-indigo-700 {
+    color: #a5b4fc;
+  }
+
+  .text-indigo-600 {
+    color: #a5b4fc;
+  }
+
+  .text-indigo-800 {
+    color: #c7d2fe;
+  }
+
+  /* Border colors */
+  .border-gray-100, .border-gray-200 {
+    border-color: #374151;
+  }
+
+  /* Special background elements */
+  .bg-indigo-50 {
+    background-color: #b64d88;
+  }
+
+  .bg-blue-50 {
+    background-color: #175435;
+  }
+
+  .bg-indigo-100 {
+    background-color: #312e81;
+    color: #e0e7ff;
+  }
+
+  .bg-blue-100 {
+    background-color: #1e3a8a;
+    color: #dbeafe;
+  }
+
+  .bg-green-100 {
+    background-color: #14532d;
+    color: #dcfce7;
+  }
+
+  .bg-amber-100 {
+    background-color: #78350f;
+    color: #fef3c7;
+  }
+
+  .bg-purple-100 {
+    background-color: #581c87;
+    color: #f3e8ff;
+  }
+
+  /* Gradients */
+  .bg-gradient-to-r.from-blue-100.to-indigo-100 {
+    background: linear-gradient(to right, #8d98b7, #57568d);
+  }
+
+  .bg-gradient-to-r.from-indigo-50.to-blue-50 {
+    background: linear-gradient(to right, #1e1b4b, #172554);
+  }
+
+  .bg-gradient-to-r.from-blue-600.to-indigo-700 {
+    background: linear-gradient(to right, #2563eb, #4338ca);
+  }
+
+  /* Fix status tags */
+  .text-green-800 {
+    color: #dcfce7;
+  }
+
+  .text-blue-800 {
+    color: #dbeafe;
+  }
+
+  .text-purple-800 {
+    color: #f3e8ff;
+  }
+
+  .text-amber-800 {
+    color: #fef3c7;
+  }
+
+  /* Button text colors in dark mode */
+  .bg-white.text-indigo-700 {
+    background-color: #7597dc;
+    color: #4338ca;
+  }
+
+  .border-indigo-600.text-indigo-600 {
+    border-color: #a5b4fc;
+    color: #a5b4fc;
+  }
+
+  /* Ensure progress bar visibility */
+  .bg-indigo-600 {
+    background-color: #6366f1;
+  }
+
+  /* Fix icon colors */
+  .text-indigo-500 {
+    color: #818cf8;
   }
 }
