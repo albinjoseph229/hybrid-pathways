@@ -34,6 +34,7 @@ import { JobseekerAppointmentsComponent } from './components/hybrid-overseas/job
 import { JobseekerJobfinderComponent } from './components/hybrid-overseas/jobseeker-components/jobseeker-jobfinder/jobseeker-jobfinder.component';
 import { CaseStudiesComponent } from './components/hybrid-overseas/employer-components/case-studies/case-studies.component';
 import {EmployerUpdatesComponent} from './components/hybrid-overseas/employer-components/employer-updates/employer-updates.component'
+import { StudentprofileComponent } from './components/hybrid-studyabroad/studentprofile/studentprofile.component';
 
 
 export const routes: Routes = [
@@ -52,6 +53,7 @@ export const routes: Routes = [
 
   //Study Abroad Routes
   { path: 'studyabroad/homepage', component: HomepageStudyabroadComponent },
+  { path: 'studyabroad/studentprofile', component: StudentprofileComponent },
 
   //Overseas Routes
   { path: 'overseas/homepage', component: HomepageOverseasComponent },

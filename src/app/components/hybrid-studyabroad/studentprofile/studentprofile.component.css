@@ -1,0 +1,122 @@
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* General page styling enhancements */
+:host {
+  display: block;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Profile image effects */
+.rounded-full {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rounded-full:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+}
+
+/* Card hover effects */
+.rounded-xl.shadow-md {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rounded-xl.shadow-md:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Button effects */
+button {
+  transition: all 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Progress bar animation */
+.bg-indigo-600.h-2 {
+  transition: width 1s ease-in-out;
+}
+
+/* Tab hover animation */
+.flex-1.py-4.px-6 {
+  position: relative;
+  overflow: hidden;
+}
+
+.flex-1.py-4.px-6::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: rgba(79, 70, 229, 0.8);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.flex-1.py-4.px-6:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Improve accessibility for focus states */
+button:focus, a:focus {
+  outline: 2px solid rgba(79, 70, 229, 0.5);
+  outline-offset: 2px;
+}
+
+/* Hide outline for mouse users, maintain for keyboard navigation */
+button:focus:not(:focus-visible), a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .rounded-xl.shadow-md:hover {
+    transform: none;
+  }
+}
+
+/* Support for dark mode if enabled at system level */
+@media (prefers-color-scheme: dark) {
+  .bg-white {
+    background-color: #1f2937;
+  }
+
+  .text-gray-800 {
+    color: #e5e7eb;
+  }
+
+  .text-gray-600 {
+    color: #d1d5db;
+  }
+
+  .border-gray-100, .border-gray-200 {
+    border-color: #374151;
+  }
+
+  .bg-gray-50 {
+    background-color: #111827;
+  }
+
+  .bg-gray-200 {
+    background-color: #374151;
+  }
+}
